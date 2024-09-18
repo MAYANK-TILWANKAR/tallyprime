@@ -52,7 +52,7 @@ const LandingPage = () => {
           UNLOCK YOUR FULL POTENTIAL
         </h2>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mt-4">
-          WE&apos;LL SEE YOU AT THE STARTING LINE{" "}
+          WE WILL SEE YOU AT THE STARTING LINE
           <span className="text-lg sm:text-xl">🚀</span>
         </p>
 
@@ -75,7 +75,7 @@ const LandingPage = () => {
             without needing any prior knowledge or hefty investments
           </p>
           <h3 class="text-2xl sm:text-3xl lg:text-4xl text-center mt-6 font-semibold">
-            Yes, It&apos;s Absolutely Possible!!
+            Yes, It is Absolutely Possible!!
             <span role="img" aria-label="thumbs-up">
               👍🏻
             </span>

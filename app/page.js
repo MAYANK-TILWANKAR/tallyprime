@@ -273,7 +273,10 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <Contact />
+      <div id="enquiry">
+        <Contact />
+      </div>
+
       <FAQSection />
       <FixedBar />
     </div>

@@ -11,27 +11,27 @@ const Testimonial = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              {
-                name: "Anush Jain",
-                role: "Student",
-                image: "/images/testi1.png",
-                quote:
-                  "The Advanced Tally Prime course was highly valuable. It covered GST, inventory management, and financial reports, boosting my confidence in using Tally for advanced tasks.",
-              },
-              {
-                name: "Sujal Pandiya",
-                role: "Student",
-                image: "/images/testi2.png",
-                quote:
-                  "This course was excellent for mastering advanced Tally Prime features like multi-currency accounting and data migration. It was concise yet very effective.",
-              },
-              {
-                name: "Ayushi Jain",
-                role: "Student",
-                image: "/images/testi3.png",
-                quote:
-                  "The Advanced Tally Prime course was extremely beneficial. It taught me advanced functions, TDS calculations, greatly enhancing my accounting skills and efficiency.",
-              },
+              // {
+              //   name: "Anush Jain",
+              //   role: "Student",
+              //   image: "/images/testi1.png",
+              //   quote:
+              //     "The Advanced Tally Prime course was highly valuable. It covered GST, inventory management, and financial reports, boosting my confidence in using Tally for advanced tasks.",
+              // },
+              // {
+              //   name: "Sujal Pandiya",
+              //   role: "Student",
+              //   image: "/images/testi2.png",
+              //   quote:
+              //     "This course was excellent for mastering advanced Tally Prime features like multi-currency accounting and data migration. It was concise yet very effective.",
+              // },
+              // {
+              //   name: "Ayushi Jain",
+              //   role: "Student",
+              //   image: "/images/testi3.png",
+              //   quote:
+              //     "The Advanced Tally Prime course was extremely beneficial. It taught me advanced functions, TDS calculations, greatly enhancing my accounting skills and efficiency.",
+              // },
               {
                 image: "/images/tallyt1.jpg",
                 fullWidth: true,

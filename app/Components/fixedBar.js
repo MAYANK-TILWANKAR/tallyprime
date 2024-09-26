@@ -30,13 +30,13 @@ const FixedBar = () => {
 
   return (
     <div
-      className={`fixed bottom-0 w-full bg-green-100 p-4 flex items-center justify-between transition-transform duration-300 ${
+      className={`fixed bottom-0 w-full bg-[#075593]/10 p-4 flex items-center justify-between transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "translate-y-full"
       }`}>
       <div>
-        <p className="text-blue-600 text-lg font-semibold">Price:4000/-</p>
+        <p className="text-[#075593] text-lg font-semibold">Price: ₹6000/-</p>
       </div>
-      <div className="bg-gradient-to-r from-green-400 to-green-600 text-white font-bold py-2 px-4 rounded-md">
+      <div className="bg-[#328AB0] text-white font-bold py-2 px-4 rounded-md">
         <MakePaymentComponent name="Register Now" />
       </div>
     </div>

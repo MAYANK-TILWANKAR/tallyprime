@@ -67,11 +67,7 @@ const MakePaymentComponent = (props) => {
     });
   };
 
-  return (
-    <button onClick={makePayment}>
-    {props.name}
-    </button>
-  );
+  return <button onClick={makePayment}>{props.name}</button>;
 };
 
 export default MakePaymentComponent;

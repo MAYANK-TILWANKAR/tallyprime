@@ -169,14 +169,14 @@ const LandingPage = () => {
               </h3>
               <p className="text-lg text-[#075593] leading-relaxed mb-8">
                 With over 6 years of experience running a successful education
-                institute, I've helped 500+ students secure placements in top
+                institute, I have helped 500+ students secure placements in top
                 companies. My expertise spans Basic Computer Courses, Advanced
-                Excel, and Tally Prime with GST. Additionally, I've worked as an
-                accountant at AdVNZ 101 for 2 years, managing complex accounting
-                and taxation tasks.
+                Excel, and Tally Prime with GST. Additionally, I have worked as
+                an accountant at AdVNZ 101 for 2 years, managing complex
+                accounting and taxation tasks.
               </p>
               <p className="text-lg text-[#075593] leading-relaxed mb-8">
-                Drawing from this experience, I'm now launching a comprehensive
+                Drawing from this experience, I am now launching a comprehensive
                 online course on Accounting and Taxation with Tally Prime. This
                 course is designed to equip you with practical skills and
                 knowledge needed to excel as an accountant, covering everything

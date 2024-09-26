@@ -74,7 +74,7 @@ const Testimonial = () => {
                       </div>
                     </div>
                     <blockquote className="text-xl text-[#075593] italic">
-                      "{testimonial.quote}"
+                      {testimonial.quote}
                     </blockquote>
                   </>
                 )}

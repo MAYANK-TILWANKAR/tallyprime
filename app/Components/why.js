@@ -200,7 +200,7 @@ const why = () => {
                   data-original="#ecc52e"></path>
               </svg>
               <p className="text-gray-800 font-medium text-lg">
-                Master Advance MS Excel For High Paying Job
+                Master Tally Prime with GST For High Paying Job
               </p>
             </div>
             <div className="flex items-center p-2 px-10 border-2 border-black rounded-lg  ">
@@ -269,7 +269,7 @@ const why = () => {
                   data-original="#444145"></path>
               </svg>
               <p className="text-gray-800 font-medium text-lg">
-                No Prior Excel Knowledge Needed
+                No Prior Tally Knowledge Needed
               </p>
             </div>
             <div className="flex items-center  px-5  border-2 border-black rounded-lg   ">
@@ -550,7 +550,7 @@ const why = () => {
                   data-original="#f26678"></path>
               </svg>
               <p className="text-gray-800 font-medium text-lg">
-                Learn #1 Skill MS Excel For High Paying Career
+                Learn #1 Skill Tally Prime with GST For High Paying Career
               </p>
             </div>
           </div>

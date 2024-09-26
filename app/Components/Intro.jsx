@@ -20,7 +20,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="sm:-my-24 -my-0  sm:py-28 py-20 ">
+    <section className="py-36 ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Swiper Slider */}
         <Swiper

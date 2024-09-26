@@ -6,6 +6,7 @@ import FAQSection from "./Components/faq";
 import Why from "./Components/why";
 import FixedBar from "./Components/fixedBar";
 import Intro from "./Components/Intro";
+import Contact from "./Components/Enquiry";
 
 const LandingPage = () => {
   return (
@@ -13,10 +14,10 @@ const LandingPage = () => {
       <header className="relative py-16 md:py-24 h-screen flex items-center">
         <div className="container mx-auto px-4 relative z-10">
           <div className="backdrop-blur-md p-8 ">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center text-[#075593] mb-8 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-6xl font-bold text-center text-[#075593] mb-8 leading-tight">
               Master Advanced Tally Prime with GST
             </h1>
-            <p className="text-xl md:text-2xl text-center  text-black mb-10 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-center text-[#075593] mb-10 max-w-3xl mx-auto">
               Unlock the power of advanced data analysis, craft interactive
               dashboards, generate in-depth reports, and reclaim up to 2 hours
               of your time daily. No prior experience required.
@@ -24,12 +25,15 @@ const LandingPage = () => {
             <div className="text-center mt-8 md:mt-10">
               <a
                 href="#_"
-                className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium tracking-tighter text-white bg-blue-800 group">
-                <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-700 hover:text-black group-hover:w-full group-hover:h-full"></span>
-                <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-green-700"></span>
-                <div className="relative text-xl">
+                className="relative px-5 py-3 overflow-hidden font-medium text-black bg-[#EDA915] border border-[#075593] rounded-lg shadow-inner group">
+                <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-[#328AB0] group-hover:w-full ease"></span>
+                <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-[#328AB0] group-hover:w-full ease"></span>
+                <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#328AB0] group-hover:h-full ease"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#328AB0] group-hover:h-full ease"></span>
+                <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-[#075593] opacity-0 group-hover:opacity-100"></span>
+                <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
                   <MakePaymentComponent name="Become Tally Prime Expert Now At ₹4000/-" />
-                </div>
+                </span>
               </a>
             </div>
           </div>
@@ -50,9 +54,9 @@ const LandingPage = () => {
           <div className="text-center mt-8 md:mt-10">
             <a
               href="#_"
-              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium tracking-tighter text-white bg-blue-800 group">
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-700 hover:text-black group-hover:w-full group-hover:h-full"></span>
-              <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-green-700"></span>
+              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium tracking-tighter text-white bg-[#075593] group">
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#328AB0] hover:text-black group-hover:w-full group-hover:h-full"></span>
+              <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#328AB0]"></span>
               <div className="relative text-xl">
                 <MakePaymentComponent name="Become Tally Prime Expert Now At ₹4000/-" />
               </div>
@@ -85,8 +89,8 @@ const LandingPage = () => {
               NO Special Skills...NO Prior Experience Needed!
             </p>
             <div className="flex justify-center">
-              <div class="bg-green-400 text-white text-base sm:text-lg lg:text-xl font-bold py-3 px-6 sm:py-4 sm:px-8 hover:scale-110 transition-all duration-300 rounded-full">
-                <MakePaymentComponent name="Become MS Excel Expert Now At ₹4000/-" />
+              <div class="bg-[#328AB0] text-white text-base sm:text-lg lg:text-xl font-bold py-3 px-6 sm:py-4 sm:px-8 hover:scale-110 transition-all duration-300 rounded-full">
+                <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
               </div>
             </div>
           </div>
@@ -142,11 +146,11 @@ const LandingPage = () => {
           <div className="text-center mt-8 md:mt-10">
             <a
               href="#_"
-              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium tracking-tighter text-white bg-blue-800 group">
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-700 hover:text-black group-hover:w-full group-hover:h-full"></span>
-              <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-green-700"></span>
+              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium tracking-tighter text-white bg-[#075593] group">
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#328AB0] hover:text-black group-hover:w-full group-hover:h-full"></span>
+              <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#328AB0]"></span>
               <div className="relative text-xl">
-                <MakePaymentComponent name="Become Tally Prime Expert Now At ₹4000/-" />
+                <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
               </div>
             </a>
           </div>
@@ -205,7 +209,7 @@ const LandingPage = () => {
 
       <Intro />
 
-      <section className="py-24 md:py-32 bg-gray-100">
+      <section className="py-24 md:py-32">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-5xl md:text-6xl font-semibold text-[#075593] mb-16">
             Do you Know?
@@ -251,23 +255,25 @@ const LandingPage = () => {
       <div id="why-section">
         <Why />
       </div>
-      <div className="bg-green-800/30 my-5 text-center py-8 md:py-20  px-4 md:px-0">
-        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-800">
+      <div className=" my-5 text-center py-8 md:py-20 px-4 md:px-0 ">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#075593]">
           WE HOPE NOW YOU ARE READY TO GO ON THIS
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-white mt-2">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-[#328AB0] mt-2">
           CAREER CHANGING RIDE
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 mt-4">
+        <p className="text-base sm:text-lg md:text-xl text-[#075593] mt-4">
           SEE YOU INSIDE THE BATCH{" "}
           <span className="text-xl sm:text-2xl">😊</span>
         </p>
 
-        <MakePaymentComponent
-          name="Become Tally Prime Expert Now At ₹6000/-"
-          className="mt-6 inline-block bg-green-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-lg rounded-full"
-        />
+        <div className="flex justify-center mt-6">
+          <div className="bg-[#328AB0] text-white text-base sm:text-lg lg:text-xl font-bold py-3 px-6 sm:py-4 sm:px-8 hover:scale-110 transition-all duration-300 rounded-full">
+            <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
+          </div>
+        </div>
       </div>
+      <Contact />
       <FAQSection />
       <FixedBar />
     </div>

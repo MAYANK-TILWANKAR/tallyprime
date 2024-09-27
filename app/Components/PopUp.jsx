@@ -32,16 +32,18 @@ const Popup = () => {
       <div className="bg-gradient-to-br from-[#075593] to-[#328AB0] p-8 rounded-xl shadow-2xl text-center max-w-md w-full mx-4 animate-fadeIn relative">
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 text-white hover:text-[#EDA915] transition-colors duration-300"
+          className="absolute top-3 right-3 text-[#ed1515] transition-colors duration-300"
           aria-label="Close">
           <IoMdClose size={28} />
         </button>
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white leading-tight">
           Only 3 seats left!
         </h1>
-        <button className="bg-[#EDA915] text-[#075593] font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
-          Book demo now
-        </button>
+        <a href="/bookDemo">
+          <button className="bg-[#EDA915] text-[#075593] font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
+            Book demo now
+          </button>
+        </a>
       </div>
     </div>
   );

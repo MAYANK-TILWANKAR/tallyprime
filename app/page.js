@@ -15,6 +15,7 @@ import Why from "./Components/Why";
 import Bar from "./Components/Bar";
 import Intro from "./Components/Intro";
 import Contact from "./Components/Enquiry";
+import PopUp from "./Components/PopUp";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -37,7 +38,8 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 ">
+    <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden  ">
+      <PopUp />
       <Hero />
       <Vm />
       <Second />

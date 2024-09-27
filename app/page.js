@@ -9,7 +9,7 @@ import Fifth from "./Components/Fifth";
 import DoYouKnow from "./Components/DoYouKnow";
 import Trainer from "./Components/Trainer";
 import Testimonial from "./Components/Testimonial";
-import Faq from "./Components/faq";
+import Faq from "./Components/Faq";
 import Why from "./Components/Why";
 import Bar from "./Components/Bar";
 import Intro from "./Components/Intro";

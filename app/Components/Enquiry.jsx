@@ -50,7 +50,7 @@ const Contact = () => {
 
   return (
     <section>
-      <div className="  container px-10  mx-auto">
+      <div className=" my-10 container px-10   mx-auto">
         <div className="  flex flex-wrap -mx-4 lg:justify-between">
           <div className="  w-full px-4 lg:w-1/2 xl:w-6/12">
             <div className="mb-12 py-16 max-w-[570px] lg:mb-0">

@@ -70,32 +70,32 @@ export default function FAQSection() {
 
 const faqData = [
   {
-    question: "1. Is there any additional charge other than the course fee?",
+    question: "1.Is there any additional charge other than the course fee?",
     answer:
       "No! No more burning hole in the pocket. There is no hidden charge.",
   },
   {
-    question: "2. How ICA Global will help me to get jobs?",
+    question: "2.How ICA Global will help me to get jobs?",
     answer:
       "Our training of professional skills will help you to acquire job & internship opportunities.",
   },
   {
-    question: "What kind of support do you provide?",
+    question: "3. What kind of support do you provide?",
     answer:
       "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base.",
   },
   {
-    question: "Can I get some demo classes?",
+    question: "4. Can I get some demo classes?",
     answer:
       "Yes, you can get demo classes without any hidden fees. We believe in providing a hassle-free experience for our students.",
   },
   {
-    question: "How can I get started?",
+    question: "5.  How can I get started?",
     answer:
       "Getting started is easy! Fill up the Enquiry form & register for the demo class, you can also directly register & reserve your seat by paying the course fee.",
   },
   {
-    question: "What is the pricing structure?",
+    question: "6. What is the pricing structure?",
     answer:
       "- The full Course Fee is Rs 6500/- in installments.\n" +
       "- Lump Sum fee is Rs 6000/-.",

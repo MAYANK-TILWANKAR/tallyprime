@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./Components/Hero";
+import Vm from "./Components/Vm";
 import Second from "./Components/Second";
 import Third from "./Components/Third";
 import Fourth from "./Components/Fourth";
@@ -38,6 +39,7 @@ const LandingPage = () => {
   return (
     <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 ">
       <Hero />
+      <Vm />
       <Second />
       <Third />
       <Fourth />

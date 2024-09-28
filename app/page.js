@@ -39,7 +39,7 @@ const LandingPage = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden  py-10 ">
-      {/* <PopUp /> */}
+      <PopUp />
       <Hero />
       <Second />
       <Third />

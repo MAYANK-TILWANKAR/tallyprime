@@ -9,7 +9,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="lg:my-0 my-20 py-20">
+    <section className=" -my-20 py-20">
       <div className="px-4 mx-auto sm:px-6 lg:px-12 xl:px-24">
         <div className="lg:max-w-[1600px] mx-auto text-center">
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">

@@ -4,7 +4,7 @@ import MakePaymentComponent from "./MakePaymentComponent";
 const Hero = () => {
   return (
     <>
-      <section className="py-16 md:py-24 h-screen flex items-center">
+      <section className="sm:-my-8 -my-12 h-screen flex items-center">
         <div className="container mx-auto px-4 z-10">
           <div className="p-4 sm:p-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center text-[#075593] mb-6 sm:mb-8 leading-tight">

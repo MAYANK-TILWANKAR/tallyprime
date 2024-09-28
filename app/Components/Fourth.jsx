@@ -3,7 +3,7 @@ import React from "react";
 const Fourth = () => {
   return (
     <>
-      <section className="py-48 ">
+      <section className="sm:py-48 py-10 ">
         <div className="lg:max-w-[1300px] mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-[#075593] mb-16">
             Who is this workshop for?

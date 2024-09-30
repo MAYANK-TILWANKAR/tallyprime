@@ -7,7 +7,7 @@ const Hero = () => {
       <section className="sm:-my-8 -my-12 h-screen flex items-center">
         <div className="container mx-auto px-4 z-10">
           <div className="p-4 sm:p-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center text-[#075593] mb-6 sm:mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl  font-bold text-center text-[#075593] mb-6 sm:mb-8 leading-tight">
               Master Advanced Tally Prime with GST
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-center text-[#075593] mb-8 sm:mb-10 max-w-lg sm:max-w-2xl mx-auto">
@@ -25,7 +25,7 @@ const Hero = () => {
                 <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-[#328AB0] group-hover:h-full ease"></span>
                 <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-[#075593] opacity-0 group-hover:opacity-100"></span>
                 <span className="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
-                  <MakePaymentComponent name="Become Tally Prime Expert Now At ₹4000/-" />
+                  <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
                 </span>
               </a>
             </div>

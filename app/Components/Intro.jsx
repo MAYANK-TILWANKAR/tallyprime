@@ -51,7 +51,7 @@ const Gallery = () => {
             <SwiperSlide key={index}>
               <div className="swiper-slide-content">
                 <img
-                  className="w-full h-96 object-cover cursor-pointer"
+                  className="w-full rounded-xl sm:h-96  object-cover cursor-pointer"
                   src={`/images/sl${index + 1}.jpg`}
                   alt={`Slide ${index + 1}`}
                   onClick={() => openImage(`/images/sl${index + 1}.jpg`)}

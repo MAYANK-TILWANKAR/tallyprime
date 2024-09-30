@@ -22,7 +22,7 @@ export async function POST(req) {
     const mailOptions = {
       from: data.email, // Sender's email from form data
       to: "mayanktilwankar2355@gmail.com", // Recipient's email
-      subject: "New Enquiry!", // Email subject
+      subject: `New Enquiry from ${data.name}!`, // Email subject
       text: `You have received a new enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nMobile:${data.mobile}\nMessage: ${data.message}`,
     };
 

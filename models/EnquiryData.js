@@ -1,12 +1,16 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const enquiryDataSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  moblile:String,
-  message: String,
-}, {
-  timestamps: true
-});
+const enquiryDataSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: String,
+    mobile: String,
+    message: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export default mongoose.models.EnquiryData || mongoose.model('EnquiryData', enquiryDataSchema);
+export default mongoose.models.EnquiryData ||
+  mongoose.model("EnquiryData", enquiryDataSchema);

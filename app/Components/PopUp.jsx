@@ -22,7 +22,7 @@ const Popup = () => {
     // Reset the hasShown state after a delay to allow the popup to show again
     setTimeout(() => {
       setHasShown(false);
-    }, 10000); // 1 minute delay before allowing the popup to show again
+    }, 20000); // 1 minute delay before allowing the popup to show again
   };
 
   if (!isOpen) return null;
@@ -36,12 +36,12 @@ const Popup = () => {
           aria-label="Close">
           <IoMdClose size={28} />
         </button>
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white leading-tight">
-          Only 3 seats left!
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white leading-tight">
+          Join 3 days free demo classes
         </h1>
         <a href="/bookDemo">
           <button className="bg-[#EDA915] text-[#075593] font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
-            Book demo now
+            Join now
           </button>
         </a>
       </div>

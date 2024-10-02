@@ -15,12 +15,12 @@ const Hero = () => {
             Looking to secure a high-demand job in accounting and taxation? Our
             3-Month Practical Accounting & Taxation Course with Tally Prime
             equips you with the real-world skills top employers are searching
-            for. No experience? No problem! Whether you're starting fresh or
+            for. No experience? No problem! Whether you are starting fresh or
             aiming to level up, this course is your gateway to a rewarding
             career as a certified accounting professional.
           </p>
           <p className="text-2xl sm:text-3xl font-semibold text-[#328AB0] mb-10">
-            🔑 Get trained. Get certified. Get hired. It's that simple!
+            🔑 Get trained. Get certified. Get hired. It&apos;s that simple!
           </p>
           <div className="mt-8 sm:mt-10">
             <a

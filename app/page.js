@@ -41,8 +41,8 @@ const LandingPage = () => {
     <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden overflow-y-hidden  py-10 ">
       <PopUp />
       <Hero />
-      <Course />
       <Second />
+      <Course />
       <Third />
       <Fourth />
       <Fifth />

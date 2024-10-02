@@ -1,5 +1,4 @@
 import React from "react";
-import MakePaymentComponent from "./MakePaymentComponent";
 
 const Third = () => {
   return (
@@ -27,9 +26,11 @@ const Third = () => {
             NO Special Skills...NO Prior Experience Needed!
           </p>
           <div className="flex justify-center">
-            <div className="bg-[#328AB0] text-white text-xs sm:text-sm lg:text-base font-bold py-2 px-4 sm:py-2.5 sm:px-5 lg:py-3 lg:px-6 rounded-full transform transition-transform duration-300 hover:scale-105 hover:bg-[#2a7691] focus:outline-none shadow-md">
-              <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
-            </div>
+            <a
+              href="/bookDemo"
+              className="bg-[#328AB0] text-white text-xs sm:text-sm lg:text-base font-bold py-2 px-4 sm:py-2.5 sm:px-5 lg:py-3 lg:px-6 rounded-full transform transition-transform duration-300 hover:scale-105 hover:bg-[#2a7691] focus:outline-none shadow-md">
+              Book Free Demo Class Now!
+            </a>
           </div>
         </div>
       </div>

@@ -36,11 +36,11 @@ const Popup = () => {
           aria-label="Close">
           <IoMdClose size={28} />
         </button>
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white leading-tight">
-          Join 3 days free demo classes
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-white leading-tight">
+          Join 3 Days Free Demo Classes
         </h1>
         <a href="/bookDemo">
-          <button className="bg-[#EDA915] text-[#075593] font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
+          <button className="bg-[#EDA915] text-[#075593] font-bold py-2 px-5 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
             Join now
           </button>
         </a>

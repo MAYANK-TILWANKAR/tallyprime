@@ -1,12 +1,12 @@
 import React from "react";
-import MakePaymentComponent from "./MakePaymentComponent";
+
 const Fourth = () => {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen ">
         <div className="w-full lg:max-w-[1300px] px-8 py-48   ">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Who is this workshop for?
+            Who is this course for?
             <span role="img" aria-label="thinking-face">
               🤔
             </span>
@@ -50,11 +50,13 @@ const Fourth = () => {
               </div>
             ))}
           </div>
-
           <div className="flex justify-center mt-8">
-            <div className="bg-[#328AB0] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#075593] transition-colors duration-300">
-              <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
-            </div>
+            <a
+              href="/bookDemo"
+              className="relative inline-flex items-center px-8 py-4 overflow-hidden text-lg font-bold text-white bg-gradient-to-r from-[#328AB0] to-[#075593] rounded-full group hover:from-[#075593] hover:to-[#328AB0] transition-all duration-300 ease-out shadow-lg hover:shadow-xl transform hover:scale-105">
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative">Book Free Demo Class Now!</span>
+            </a>
           </div>
         </div>
       </div>

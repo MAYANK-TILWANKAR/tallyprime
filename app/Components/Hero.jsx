@@ -1,11 +1,10 @@
 import React from "react";
-import MakePaymentComponent from "./MakePaymentComponent";
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-center bg-gradient-to-b from-[#075593]/10 to-[#328AB0]/10">
-      <div className="container mx-auto px-4 ">
-        <div className=" mx-auto text-center">
+    <section className="flex items-center justify-center ">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#075593] mb-6 sm:mb-8 leading-tight">
             Learn Tally Prime with GST Course in just 3 Months &{" "}
             <span className="bg-yellow-300 px-2 py-1 rounded-lg inline-block transform -skew-x-6">
@@ -25,11 +24,11 @@ const Hero = () => {
           </p>
           <div className="mt-8 sm:mt-10">
             <a
-              href="#_"
+              href="/bookDemo"
               className="relative inline-flex items-center px-8 py-4 overflow-hidden text-lg font-bold text-black bg-[#EDA915] rounded-full group hover:bg-[#075593] transition-colors duration-300 ease-out">
               <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative transition-colors duration-300 group-hover:text-white ease">
-                <MakePaymentComponent name="Become Tally Prime Expert Now At ₹6000/-" />
+                Book Free Demo Class Now!
               </span>
             </a>
           </div>

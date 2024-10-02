@@ -1,5 +1,4 @@
 import React from "react";
-import MakePaymentComponent from "./MakePaymentComponent";
 
 const Second = () => {
   return (
@@ -18,12 +17,12 @@ const Second = () => {
           </p>
           <div className="text-center mt-6 sm:mt-8 md:mt-10">
             <a
-              href="#_"
+              href="/bookDemo"
               className="relative inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 overflow-hidden font-medium tracking-tighter text-white bg-[#075593] group">
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#328AB0] hover:text-black group-hover:w-full group-hover:h-full"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#328AB0]"></span>
               <div className="relative text-lg sm:text-xl">
-                <MakePaymentComponent name="Become Tally Prime Expert Now At ₹4000/-" />
+                Book Free Demo Class Now!
               </div>
             </a>
           </div>

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/parallax";
 
-const Gallery = () => {
+const Intro = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openImage = (src) => {
@@ -20,9 +20,8 @@ const Gallery = () => {
   };
 
   return (
-    <section className="py-36 ">
+    <section>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Swiper Slider */}
         <Swiper
           modules={[Navigation, Autoplay, Pagination, Parallax]}
           slidesPerView={1}
@@ -51,7 +50,7 @@ const Gallery = () => {
             <SwiperSlide key={index}>
               <div className="swiper-slide-content">
                 <img
-                  className="w-full rounded-xl sm:h-96  object-cover cursor-pointer"
+                  className="w-full rounded-xl sm:h-96 object-cover cursor-pointer"
                   src={`/images/sl${index + 1}.jpg`}
                   alt={`Slide ${index + 1}`}
                   onClick={() => openImage(`/images/sl${index + 1}.jpg`)}
@@ -62,7 +61,6 @@ const Gallery = () => {
         </Swiper>
       </div>
 
-      {/* Full-screen image modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -74,8 +72,31 @@ const Gallery = () => {
           />
         </div>
       )}
+      <div className="text-center mt-8">
+        <a
+          href="/bookDemo"
+          className="relative inline-flex items-center px-8 py-4 overflow-hidden text-lg font-bold text-white bg-gradient-to-r from-[#075593] to-[#328AB0] rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out group">
+          <span className="absolute inset-0 w-full h-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 ease-out"></span>
+          <span className="absolute left-0 w-48 h-48 -ml-24 -mt-24 bg-white rounded-full opacity-5 group-hover:scale-150 transition-transform duration-500 ease-out"></span>
+          <span className="relative z-10 flex items-center">
+            <svg
+              className="w-6 h-6 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Book Free Demo Class Now!
+          </span>
+        </a>
+      </div>
     </section>
   );
 };
 
-export default Gallery;
+export default Intro;

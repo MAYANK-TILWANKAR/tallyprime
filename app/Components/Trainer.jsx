@@ -43,7 +43,7 @@ const Trainer = () => {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <p className="text-3xl sm:text-4xl font-semibold text-[#328AB0]">
-                  <CountUp end={500} duration={2} />+
+                  <CountUp end={1000} duration={2} />+
                 </p>
                 <p className="text-base sm:text-lg text-[#075593] mt-2">
                   Students Placed

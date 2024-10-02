@@ -2,15 +2,15 @@
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./Components/Hero";
-import Vm from "./Components/Vm";
+import Course from "./Components/Course";
 import Second from "./Components/Second";
 import Third from "./Components/Third";
 import Fourth from "./Components/Fourth";
 import Fifth from "./Components/Fifth";
-import DoYouKnow from "./Components/DoYouKnow";
+
 import Trainer from "./Components/Trainer";
 import Testimonial from "./Components/Testimonial";
-import Faq from "./Components/Faq";
+
 import Why from "./Components/Why";
 import Bar from "./Components/Bar";
 import Intro from "./Components/Intro";
@@ -41,20 +41,20 @@ const LandingPage = () => {
     <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden overflow-y-hidden  py-10 ">
       <PopUp />
       <Hero />
+      <Course />
       <Second />
       <Third />
       <Fourth />
       <Fifth />
       <Trainer />
       <Intro />
-      <Vm />
-      <DoYouKnow />
+
       <Testimonial />
       <Why />
       <div id="enquiry">
         <Contact />
       </div>
-      <Faq />
+
       <Bar />
     </div>
   );

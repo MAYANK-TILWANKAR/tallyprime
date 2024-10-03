@@ -1,5 +1,5 @@
-// pages/api/getData.js
-import connectToDatabase from "../../lib/mongoose";
+// pages/api/getData.j
+import connectToDatabase from "@/lib/mongoose";
 import EnquiryData from "@/models/EnquiryData";
 
 export default async function handler(req, res) {

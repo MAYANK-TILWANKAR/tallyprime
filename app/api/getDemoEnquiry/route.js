@@ -10,7 +10,11 @@ export async function GET(request) {
 
     // Check if DemoData is defined
     if (!DemoData) {
-      throw new Error("DemoData model is not defined");
+      console.error("DemoData model is not defined");
+      return NextResponse.json(
+        { error: "Internal server error" },
+        { status: 500 }
+      );
     }
 
     const demoData = await DemoData.find().sort({ createdAt: -1 });
@@ -18,6 +22,9 @@ export async function GET(request) {
     return NextResponse.json(demoData);
   } catch (error) {
     console.error("Error in GET function:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

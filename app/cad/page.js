@@ -1,33 +1,53 @@
 "use client";
-import React from "react";
-import useSWR from 'swr';
-
-const fetcher = async (url) => {
-  console.log(`Fetching data from ${url}`);
-  const res = await fetch(url, {
-    headers: { 'Cache-Control': 'no-cache' }
-  });
-  if (!res.ok) {
-    console.error(`Error fetching from ${url}:`, res.statusText);
-    throw new Error('An error occurred while fetching the data.');
-  }
-  const data = await res.json();
-  console.log(`Data received from ${url}:`, data);
-  return data;
-};
+import React, { useEffect, useState } from "react";
 
 const ContactAdminDashboard = () => {
-  const { data: enquiryData, error: enquiryError, mutate: mutateEnquiry } = useSWR('/api/getEnquiry', fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
-  });
-  const { data: demoData, error: demoError, mutate: mutateDemo } = useSWR('/api/getDemoEnquiry', fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
-  });
+  const [formData, setFormData] = useState([]);
+  const [demoData, setDemoData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const isLoading = !enquiryData && !enquiryError || !demoData && !demoError;
-  const error = enquiryError || demoError;
+  const fetchData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const timestamp = new Date().getTime();
+      const [enquiryRes, demoRes] = await Promise.all([
+        fetch(`/api/getEnquiry?t=${timestamp}`, {
+          cache: "no-store",
+          headers: { "Cache-Control": "no-cache" },
+        }),
+        fetch(`/api/getDemoEnquiry?t=${timestamp}`, {
+          cache: "no-store",
+          headers: { "Cache-Control": "no-cache" },
+        }),
+      ]);
+
+      if (!enquiryRes.ok || !demoRes.ok) {
+        throw new Error(`Error fetching data`);
+      }
+
+      const [enquiryData, demoData] = await Promise.all([
+        enquiryRes.json(),
+        demoRes.json(),
+      ]);
+
+      console.log("Enquiry data:", enquiryData);
+      console.log("Demo data:", demoData);
+
+      setFormData(enquiryData.data);
+      setDemoData(demoData.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message || "An error occurred while fetching data");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleDelete = async (id, isDemo = false) => {
     console.log(`Deleting ${isDemo ? "demo" : "enquiry"} entry with id:`, id);
@@ -49,20 +69,11 @@ const ContactAdminDashboard = () => {
       }
 
       console.log("Delete successful, refreshing data...");
-      if (isDemo) {
-        mutateDemo();
-      } else {
-        mutateEnquiry();
-      }
+      await fetchData();
     } catch (error) {
       console.error(`Error deleting ${isDemo ? "demo " : ""}entry:`, error);
+      setError(error.message);
     }
-  };
-
-  const refreshData = () => {
-    console.log("Manually refreshing data...");
-    mutateEnquiry();
-    mutateDemo();
   };
 
   const renderTable = (data, isDemo = false) => (
@@ -154,8 +165,8 @@ const ContactAdminDashboard = () => {
     </div>
   );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="container mx-auto p-8">
@@ -164,18 +175,18 @@ const ContactAdminDashboard = () => {
           Contact Form Submissions
         </h2>
         <button
-          onClick={refreshData}
+          onClick={fetchData}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Refresh Data
         </button>
       </div>
-      {renderTable(enquiryData?.data || [])}
+      {renderTable(formData)}
 
       <h2 className="text-3xl font-bold my-6 text-gray-800">
         Demo Form Submissions
       </h2>
-      {renderTable(demoData?.data || [], true)}
+      {renderTable(demoData, true)}
     </div>
   );
 };

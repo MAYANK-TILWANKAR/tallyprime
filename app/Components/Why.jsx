@@ -178,7 +178,7 @@ const Why = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-[#075593]/10 to-[#328AB0]/10 py-20">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-4xl font-bold mb-12 text-[#075593]">
           Why Should You Learn Tally Prime with GST?

@@ -131,13 +131,10 @@ const CourseCurriculum = () => {
   ];
 
   return (
-    <div className="bg-[#328AB0]/10 text-[#075593] p-6 rounded-lg">
-      <div className="flex justify-between bg-[#328AB0]/20 text-[#075593] p-4 rounded-lg">
+    <div className="text-[#075593] px-10 py-28 rounded-lg">
+      <div className="flex justify-between bg-[#075593]/20 text-[#075593] p-4 rounded-lg">
         <span>{modules.length} Modules</span>
-        <span>
-          {" "}
-          <h1 className="text-4xl font-bold mb-4">Course curriculum</h1>
-        </span>
+        <h1 className="text-4xl font-bold">Course curriculum</h1>
         <span>
           {modules.reduce((acc, module) => acc + module.content.length, 0)}{" "}
           Lessons
@@ -147,18 +144,18 @@ const CourseCurriculum = () => {
       {/* Modules */}
       <div className="mt-4">
         {modules.map((module, index) => (
-          <div key={index} className="border-b border-[#328AB0]/30">
+          <div key={index} className="border-b border-[#075593]/30">
             <div
-              className="p-4 flex justify-between items-center cursor-pointer bg-[#075593]/20 hover:bg-[#328AB0]/30"
+              className="p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
               onClick={() => toggleModule(index)}>
               <span className="font-semibold">{module.title}</span>
               <span>{openModule === index ? "▲" : "▼"}</span>
             </div>
             {openModule === index && (
-              <div className="p-4 bg-[#328AB0]/20">
+              <div className="p-4 bg-[#075593]/5">
                 <ul className="list-disc pl-5">
                   {module.content.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-[#075593]/80">
+                    <li key={itemIndex} className="text-[#075593]">
                       {item}
                     </li>
                   ))}

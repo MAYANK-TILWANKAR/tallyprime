@@ -1,31 +1,25 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongoose";
 import DemoData from "@/models/DemoData";
 
-export const runtime = 'edge';
+export const runtime = "edge";
 
-export async function GET() {
-  console.log("GET /api/getDemoEnquiry called");
+export async function GET(request) {
   try {
-    await connectToDatabase();
-    console.log("Database connected");
+    // Check if DemoData exists before trying to access it
+    if (!global.DemoData) {
+      throw new Error("DemoData is not defined");
+    }
 
-    const data = await DemoData.find({}).sort({ createdAt: -1 });
-    console.log(`Fetched ${data.length} demo enquiry records`);
+    // Now you can safely use DemoData
+    const result = global.DemoData.someMethod();
 
-    return NextResponse.json({ success: true, data }, {
-      status: 200,
-      headers: { 
-        'Cache-Control': 'no-store, max-age=0, must-revalidate'
-      },
-    });
-  } catch (e) {
-    console.error("Error in getDemoEnquiry:", e);
-    return NextResponse.json({ success: false, error: e.message }, {
+    // ... rest of the function ...
+  } catch (error) {
+    console.error("Error in GET function:", error);
+    return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
-      headers: { 
-        'Cache-Control': 'no-store, max-age=0, must-revalidate'
-      },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

@@ -1,19 +1,25 @@
-// pages/api/getData.j
 import connectToDatabase from "@/lib/mongoose";
 import EnquiryData from "@/models/EnquiryData";
 
-export default async function handler(req, res) {
+export async function GET() {
   try {
     await connectToDatabase();
 
     // Fetch the data from a collection
     const data = await EnquiryData.find({});
 
-    res.status(200).json({ success: true, data });
+    return new Response(JSON.stringify({ success: true, data }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (e) {
     console.error(e);
-    res
-      .status(500)
-      .json({ success: false, error: "Database connection error" });
+    return new Response(
+      JSON.stringify({ success: false, error: "Database connection error" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }

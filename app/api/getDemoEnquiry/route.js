@@ -6,20 +6,13 @@ export const runtime = "edge";
 
 export async function GET(request) {
   try {
-    // Check if DemoData exists before trying to access it
-    if (!global.DemoData) {
-      throw new Error("DemoData is not defined");
-    }
+    await connectToDatabase();
 
-    // Now you can safely use DemoData
-    const result = global.DemoData.someMethod();
+    const demoData = await DemoData.find().sort({ createdAt: -1 });
 
-    // ... rest of the function ...
+    return NextResponse.json(demoData);
   } catch (error) {
     console.error("Error in GET function:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

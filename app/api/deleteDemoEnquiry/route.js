@@ -41,7 +41,7 @@ export async function DELETE(request) {
       }
     );
   } catch (e) {
-    console.error(e);
+    console.error("Error in DELETE /api/deleteDemoEnquiry:", e);
     return new Response(
       JSON.stringify({
         success: false,

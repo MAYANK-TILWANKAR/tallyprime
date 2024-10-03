@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const CourseCurriculum = () => {
   const [openModule, setOpenModule] = useState(null);
@@ -145,23 +146,41 @@ const CourseCurriculum = () => {
       <div className="mt-4">
         {modules.map((module, index) => (
           <div key={index} className="border-b border-[#075593]/30">
-            <div
+            <motion.div
               className="p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
-              onClick={() => toggleModule(index)}>
+              onClick={() => toggleModule(index)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}>
               <span className="font-semibold">{module.title}</span>
-              <span>{openModule === index ? "▲" : "▼"}</span>
-            </div>
-            {openModule === index && (
-              <div className="p-4 bg-[#075593]/5">
-                <ul className="list-disc pl-5">
-                  {module.content.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-[#075593]">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+              <motion.span
+                animate={{ rotate: openModule === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}>
+                ▼
+              </motion.span>
+            </motion.div>
+            <AnimatePresence>
+              {openModule === index && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-4 bg-[#075593]/5 overflow-hidden">
+                  <ul className="list-disc pl-5">
+                    {module.content.map((item, itemIndex) => (
+                      <motion.li
+                        key={itemIndex}
+                        className="text-[#075593]"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: itemIndex * 0.05 }}>
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

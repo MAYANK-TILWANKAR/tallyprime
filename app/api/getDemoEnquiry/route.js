@@ -1,30 +1,25 @@
-import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongoose";
+
 import DemoData from "@/models/DemoData";
-
-export const runtime = "edge";
-
-export async function GET(request) {
+export async function GET() {
   try {
     await connectToDatabase();
 
-    // Check if DemoData is defined
-    if (!DemoData) {
-      console.error("DemoData model is not defined");
-      return NextResponse.json(
-        { error: "Internal server error" },
-        { status: 500 }
-      );
-    }
+    // Fetch the data from the EnquiryData collection
+    const data = await DemoData.find({});
 
-    const demoData = await DemoData.find().sort({ createdAt: -1 });
-
-    return NextResponse.json(demoData);
-  } catch (error) {
-    console.error("Error in GET function:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
+    return new Response(JSON.stringify({ success: true, data }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (e) {
+    console.error(e);
+    return new Response(
+      JSON.stringify({ success: false, error: "Database connection error" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
     );
   }
 }

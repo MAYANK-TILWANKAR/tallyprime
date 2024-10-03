@@ -23,24 +23,24 @@ const Intro = () => {
     <Swiper
       modules={[Navigation, Autoplay, Pagination, Parallax]}
       slidesPerView={1}
-      spaceBetween={30}
+      spaceBetween={35}
       loop={true}
       autoplay={{
-        delay: 1500,
+        delay: 1800,
         disableOnInteraction: false,
       }}
       breakpoints={{
         640: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 25,
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 35,
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween: 40,
+          spaceBetween: 45,
         },
       }}
       className="swiper-container">
@@ -48,7 +48,7 @@ const Intro = () => {
         <SwiperSlide key={index}>
           <div className="swiper-slide-content">
             <img
-              className="w-full rounded-xl sm:h-96 object-cover cursor-pointer"
+              className="w-full rounded-xl sm:h-[420px] object-cover cursor-pointer"
               src={`/images/${prefix}${index + 1}.jpg`}
               alt={`Slide ${index + 1}`}
               onClick={() => openImage(`/images/${prefix}${index + 1}.jpg`)}
@@ -62,30 +62,30 @@ const Intro = () => {
   return (
     <>
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-9 py-12">
           {renderSwiper(8, "sl")}
         </div>
 
         {selectedImage && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
             onClick={closeImage}>
             <img
               src={selectedImage}
               alt="Full-screen"
-              className="max-w-full max-h-full"
+              className="max-w-[95%] max-h-[95%]"
             />
           </div>
         )}
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <a
             href="/bookDemo"
-            className="relative inline-flex items-center px-8 py-4 overflow-hidden text-lg font-bold text-white bg-gradient-to-r from-[#075593] to-[#328AB0] rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out group">
+            className="relative inline-flex items-center px-5 sm:px-7 md:px-9 py-3 sm:py-4 md:py-5 overflow-hidden text-base sm:text-lg md:text-xl font-bold text-white bg-gradient-to-r from-[#075593] to-[#328AB0] rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-out group">
             <span className="absolute inset-0 w-full h-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 ease-out"></span>
-            <span className="absolute left-0 w-48 h-48 -ml-24 -mt-24 bg-white rounded-full opacity-5 group-hover:scale-150 transition-transform duration-500 ease-out"></span>
+            <span className="absolute left-0 w-56 h-56 -ml-28 -mt-28 bg-white rounded-full opacity-5 group-hover:scale-150 transition-transform duration-500 ease-out"></span>
             <span className="relative z-10 flex items-center">
               <svg
-                className="w-6 h-6 mr-2"
+                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mr-2 sm:mr-3"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -96,13 +96,16 @@ const Intro = () => {
                   strokeWidth="2"
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
-              Book Free Demo Class Now!
+              <span className="hidden sm:inline">
+                Book Free Demo Class Now!
+              </span>
+              <span className="sm:hidden">Book Demo</span>
             </span>
           </a>
         </div>
       </section>
-      <section className="py-12 sm:py-16 md:py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-18 md:py-26 lg:py-36">
+        <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-9">
           {renderSwiper(9, "g")}
         </div>
       </section>

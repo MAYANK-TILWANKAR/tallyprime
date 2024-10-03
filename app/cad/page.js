@@ -13,8 +13,6 @@ const ContactAdminDashboard = () => {
   }, []);
 
   const fetchEnquiryData = async () => {
-    setLoading(true);
-    setError(null);
     try {
       const enquiryRes = await fetch("/api/getEnquiry", { cache: "no-store" });
 
@@ -23,21 +21,14 @@ const ContactAdminDashboard = () => {
       }
 
       const enquiryData = await enquiryRes.json();
-
-      console.log("Fetched enquiry data:", enquiryData);
-
       setFormData(enquiryData.data);
     } catch (error) {
       console.error("Error fetching enquiry data:", error);
       setError(error.message);
-    } finally {
-      setLoading(false);
     }
   };
 
   const fetchDemoEnquiryData = async () => {
-    setLoading(true);
-    setError(null);
     try {
       const demoRes = await fetch("/api/getDemoEnquiry", { cache: "no-store" });
 
@@ -46,9 +37,6 @@ const ContactAdminDashboard = () => {
       }
 
       const demoData = await demoRes.json();
-
-      console.log("Fetched demo data:", demoData);
-
       setDemoData(demoData.data);
     } catch (error) {
       console.error("Error fetching demo enquiry data:", error);
@@ -87,6 +75,8 @@ const ContactAdminDashboard = () => {
   };
 
   const handleRefresh = () => {
+    setLoading(true);
+    setError(null);
     fetchEnquiryData();
     fetchDemoEnquiryData();
   };

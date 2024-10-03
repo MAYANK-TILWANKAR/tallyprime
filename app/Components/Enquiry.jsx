@@ -50,10 +50,10 @@ const Contact = () => {
 
   return (
     <section>
-      <div className=" py-72 container px-10   mx-auto">
-        <div className="  flex flex-wrap -mx-4 lg:justify-between">
-          <div className="  w-full px-4 lg:w-1/2 xl:w-6/12">
-            <div className="mb-12 py-16 max-w-[570px] lg:mb-0">
+      <div className="py-72 container px-10 mx-auto">
+        <div className="flex flex-wrap -mx-4 lg:justify-between">
+          <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
+            <div className="mb-12    max-w-[570px] lg:mb-0">
               <h2 className="text-black mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                 GET IN TOUCH WITH US
               </h2>
@@ -128,15 +128,14 @@ const Contact = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="mb-1 text-xl font-bold">
-                    {" "}
                     <a href="mailto:icaglobal.in@gmail.com">Click to Email</a>
                   </h4>
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-full -my-32 px-4 lg:w-1/2 xl:w-5/12  ">
-            <div className="relative p-8  sm:p-12 ">
+          <div className="w-full -my-32 px-4 lg:w-1/2 xl:w-5/12">
+            <div className="relative p-8 sm:p-12">
               <form onSubmit={handleSubmit}>
                 <div className="mb-6">
                   <input
@@ -145,7 +144,7 @@ const Contact = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="border-stroke w-full rounded border py-3 px-[14px] text-base outline-none"
+                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
                   />
                 </div>
                 <div className="mb-6">
@@ -155,7 +154,7 @@ const Contact = () => {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="border-stroke  w-full rounded border py-3 px-[14px] text-base outline-none"
+                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
                   />
                 </div>
                 <div className="mb-6">
@@ -165,7 +164,7 @@ const Contact = () => {
                     placeholder="Your Phone"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="border-stroke focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
                   />
                 </div>
                 <div className="mb-6">
@@ -175,12 +174,12 @@ const Contact = () => {
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="border-stroke  w-full resize-none rounded border py-3 px-[14px] text-base outline-none"></textarea>
+                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"></textarea>
                 </div>
                 <div>
                   <button
                     type="submit"
-                    className="w-full p-3 text-white bg-green-800 transition border rounded  hover:bg-opacity-90"
+                    className="w-full p-3 text-white bg-green-800 transition border rounded hover:bg-opacity-90"
                     disabled={isSubmitting}>
                     {isSubmitting ? (
                       <PropagateLoader

@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 const Trainer = () => {
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById("trainer-section");
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+        if (isVisible) {
+          setStartCount(true);
+          window.removeEventListener("scroll", handleScroll);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check visibility on initial render
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="py-12 sm:py-16 md:py-24 lg:py-32">
+    <section id="trainer-section" className="py-12 sm:py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           <div className="text-center">
@@ -35,7 +56,7 @@ const Trainer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <p className="text-3xl sm:text-4xl font-semibold text-[#328AB0]">
-                  <CountUp end={6} duration={2} />+
+                  {startCount && <CountUp end={6} duration={2} />}+
                 </p>
                 <p className="text-base sm:text-lg text-[#075593] mt-2">
                   Courses
@@ -43,7 +64,7 @@ const Trainer = () => {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <p className="text-3xl sm:text-4xl font-semibold text-[#328AB0]">
-                  <CountUp end={1000} duration={2} />+
+                  {startCount && <CountUp end={1000} duration={2} />}+
                 </p>
                 <p className="text-base sm:text-lg text-[#075593] mt-2">
                   Students Placed
@@ -51,7 +72,7 @@ const Trainer = () => {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <p className="text-3xl sm:text-4xl font-semibold text-[#328AB0]">
-                  <CountUp end={6} duration={2} />+
+                  {startCount && <CountUp end={6} duration={2} />}+
                 </p>
                 <p className="text-base sm:text-lg text-[#075593] mt-2">
                   Years of Experience

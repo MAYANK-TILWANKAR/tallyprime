@@ -1,19 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ContactAdminDashboard = () => {
   const [formData, setFormData] = useState([]);
   const [demoData, setDemoData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     setLoading(true);
     setError(null);
     try {
       const [enquiryRes, demoRes] = await Promise.all([
-        fetch("/api/getEnquiry"),
-        fetch("/api/getDemoEnquiry"),
+        fetch("/api/getEnquiry", { cache: 'no-store' }),
+        fetch("/api/getDemoEnquiry", { cache: 'no-store' }),
       ]);
 
       if (!enquiryRes.ok || !demoRes.ok) {
@@ -70,38 +74,6 @@ const ContactAdminDashboard = () => {
     fetchData();
   };
 
-  const forceRefresh = async () => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      const [enquiryRes, demoRes] = await Promise.all([
-        fetch("/api/getEnquiry", { cache: 'no-store' }),
-        fetch("/api/getDemoEnquiry", { cache: 'no-store' }),
-      ]);
-
-      if (!enquiryRes.ok || !demoRes.ok) {
-        throw new Error(`Error fetching data`);
-      }
-
-      const [enquiryData, demoData] = await Promise.all([
-        enquiryRes.json(),
-        demoRes.json(),
-      ]);
-
-      console.log("Force refreshed enquiry data:", enquiryData);
-      console.log("Force refreshed demo data:", demoData);
-
-      setFormData(enquiryData.data);
-      setDemoData(demoData.data);
-    } catch (error) {
-      console.error("Error during force refresh:", error);
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -125,9 +97,6 @@ const ContactAdminDashboard = () => {
     <>
       <button onClick={handleRefresh} className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Refresh Data
-      </button>
-      <button onClick={forceRefresh} className="mb-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-        Force Refresh Data
       </button>
       <div className="container mx-auto p-8">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">

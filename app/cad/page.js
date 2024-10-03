@@ -9,10 +9,11 @@ const ContactAdminDashboard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Ensure loading is set to true before fetching
       try {
         const [enquiryRes, demoRes] = await Promise.all([
-          fetch("/api/getEnquiry"),
-          fetch("/api/getDemoEnquiry"),
+          fetch("/api/getEnquiry", { cache: 'no-store' }),
+          fetch("/api/getDemoEnquiry", { cache: 'no-store' }),
         ]);
 
         if (!enquiryRes.ok || !demoRes.ok) {
@@ -28,7 +29,7 @@ const ContactAdminDashboard = () => {
         setDemoData(demoData.data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setError(error.message);
+        setError(error.message || "An error occurred while fetching data");
       } finally {
         setLoading(false);
       }

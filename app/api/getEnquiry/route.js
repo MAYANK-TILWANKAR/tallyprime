@@ -10,7 +10,7 @@ export async function GET() {
     // Fetch the data from the EnquiryData collection
     const data = await EnquiryData.find({}).lean();
     
-    console.log("Fetched data:", data); // Add this line for debugging
+    console.log("Fetched data:", data);
 
     return new Response(JSON.stringify({ success: true, data }), {
       status: 200,
@@ -20,13 +20,12 @@ export async function GET() {
       },
     });
   } catch (e) {
-    console.error("Detailed error in GET /api/getEnquiry:", e);
+    console.error("Error in GET /api/getEnquiry:", e);
     return new Response(
       JSON.stringify({
         success: false,
         error: "Server error",
         details: e.message,
-        stack: e.stack, // Be cautious about exposing this in production
       }),
       {
         status: 500,

@@ -1,45 +1,42 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const ContactAdminDashboard = () => {
   const [formData, setFormData] = useState([]);
   const [demoData, setDemoData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [refreshKey, setRefreshKey] = useState(0);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [enquiryRes, demoRes] = await Promise.all([
-          fetch("/api/getEnquiry"),
-          fetch("/api/getDemoEnquiry"),
-        ]);
+  const fetchData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [enquiryRes, demoRes] = await Promise.all([
+        fetch("/api/getEnquiry"),
+        fetch("/api/getDemoEnquiry"),
+      ]);
 
-        if (!enquiryRes.ok || !demoRes.ok) {
-          throw new Error(`Error fetching data`);
-        }
-
-        const [enquiryData, demoData] = await Promise.all([
-          enquiryRes.json(),
-          demoRes.json(),
-        ]);
-
-        console.log("Fetched enquiry data:", enquiryData);
-        console.log("Fetched demo data:", demoData);
-
-        setFormData(enquiryData.data);
-        setDemoData(demoData.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
+      if (!enquiryRes.ok || !demoRes.ok) {
+        throw new Error(`Error fetching data`);
       }
-    };
 
-    fetchData();
-  }, [refreshKey]); // Add refreshKey to the dependency array
+      const [enquiryData, demoData] = await Promise.all([
+        enquiryRes.json(),
+        demoRes.json(),
+      ]);
+
+      console.log("Fetched enquiry data:", enquiryData);
+      console.log("Fetched demo data:", demoData);
+
+      setFormData(enquiryData.data);
+      setDemoData(demoData.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleDelete = async (id, isDemo = false) => {
     try {
@@ -70,7 +67,7 @@ const ContactAdminDashboard = () => {
   };
 
   const handleRefresh = () => {
-    setRefreshKey(prevKey => prevKey + 1);
+    fetchData();
   };
 
   const forceRefresh = async () => {

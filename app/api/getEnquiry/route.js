@@ -6,7 +6,7 @@ export async function GET() {
     await connectToDatabase();
 
     // Fetch the data from the EnquiryData collection
-    const data = await EnquiryData.find({});
+    const data = await EnquiryData.find({}).sort({ createdAt: -1 });
 
     return new Response(JSON.stringify({ success: true, data }), {
       status: 200,
@@ -14,7 +14,7 @@ export async function GET() {
     });
   } catch (e) {
     console.error(e);
-    return new Response(JSON.stringify({ success: false, error: "Database connection error" }), {
+    return new Response(JSON.stringify({ success: false, error: "An error occurred while fetching data" }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

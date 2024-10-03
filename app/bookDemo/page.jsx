@@ -34,102 +34,98 @@ const BookDemo = () => {
 
       if (response.ok) {
         console.log("Form submitted successfully");
-        // Reset form after submission
         setFormData({
           name: "",
           email: "",
           mobile: "",
-          course: "Tally Prime with GST", // Ensure this is reset as well
+          course: "Tally Prime with GST",
         });
-        // Show popup
         setShowPopup(true);
-        // Hide popup after 3 seconds
         setTimeout(() => setShowPopup(false), 3000);
       } else {
         console.error("Form submission failed");
-        // You might want to show an error message to the user here
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      // You might want to show an error message to the user here
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 relative">
-      <h1 className="text-3xl font-bold text-center text-[#075593] mb-8">
-        Book a Demo Class
-      </h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-[#075593] font-bold mb-2">
-            Name *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-[#075593] font-bold mb-2">
-            Email *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="mobile"
-            className="block text-[#075593] font-bold mb-2">
-            Mobile *
-          </label>
-          <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-[#EDA915] text-white font-bold py-2 px-4 rounded-md hover:bg-[#075593] transition-colors duration-300"
-          disabled={isSubmitting}>
-          {isSubmitting ? (
-            <PropagateLoader
-              color="white"
-              cssOverride={{}}
-              loading
-              size={5}
-              speedMultiplier={1}
+    <div className="min-h-screen bg-gradient-to-b from-[#E6F3FF] to-[#FFFFFF] flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-2xl">
+        <h1 className="text-2xl font-extrabold text-center text-[#075593] mb-8">
+          Book a Demo Class Now!!!
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-[#075593]">
+              Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-3 py-2 bg-white border border-[#328AB0] rounded-md text-sm shadow-sm placeholder-gray-400
+                         focus:outline-none focus:border-[#075593] focus:ring-1 focus:ring-[#075593]"
             />
-          ) : (
-            "Book Demo"
-          )}
-        </button>
-      </form>
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-[#075593]">
+              Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-3 py-2 bg-white border border-[#328AB0] rounded-md text-sm shadow-sm placeholder-gray-400
+                         focus:outline-none focus:border-[#075593] focus:ring-1 focus:ring-[#075593]"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="mobile"
+              className="block text-sm font-medium text-[#075593]">
+              Mobile *
+            </label>
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-3 py-2 bg-white border border-[#328AB0] rounded-md text-sm shadow-sm placeholder-gray-400
+                         focus:outline-none focus:border-[#075593] focus:ring-1 focus:ring-[#075593]"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#EDA915] hover:bg-[#075593] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#075593] transition-colors duration-300"
+            disabled={isSubmitting}>
+            {isSubmitting ? (
+              <PropagateLoader color="white" size={8} />
+            ) : (
+              "Book Demo"
+            )}
+          </button>
+        </form>
+      </div>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-[#075593] border border-white rounded-lg p-10 shadow-lg">
-            <p className="text-[#ffffff] font-bold text-lg">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white border-2 border-[#075593] rounded-lg p-6 shadow-xl animate-fade-in-down">
+            <p className="text-[#075593] font-bold text-lg text-center">
               Demo class has been booked!
             </p>
           </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PropagateLoader } from "react-spinners";
 
-const Contact = () => {
+const Enquiry = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,20 +49,20 @@ const Contact = () => {
   };
 
   return (
-    <section>
-      <div className="py-72 container px-10 mx-auto">
-        <div className="flex flex-wrap -mx-4 lg:justify-between">
-          <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
-            <div className="mb-12    max-w-[570px] lg:mb-0">
-              <h2 className="text-black mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+    <section className="py-12 sm:py-16 md:py-20 ">
+      <div className="container px-4 mx-auto">
+        <div className="flex flex-wrap -mx-4">
+          <div className="w-full px-4 mb-8 lg:w-1/2 lg:mb-0">
+            <div className="max-w-[570px] mx-auto lg:mx-0 text-center lg:text-left">
+              <h2 className="text-black py-12 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
                 GET IN TOUCH WITH US
               </h2>
 
-              <div className="mb-8 flex w-full max-w-[370px] items-center">
-                <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-8 flex flex-col items-center lg:flex-row lg:items-center">
+                <div className="mb-4 lg:mb-0 lg:mr-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -72,17 +72,17 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <div className="w-full">
-                  <h4 className="mb-1 text-xl font-bold">Our Location</h4>
-                  <p className="">Freeganj, Ujjain</p>
+                <div>
+                  <h4 className="mb-1 text-lg font-bold">Our Location</h4>
+                  <p className="text-base">Freeganj, Ujjain</p>
                 </div>
               </div>
 
-              <div className="mb-8 flex w-full max-w-[370px] items-center">
-                <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-8 flex flex-col items-center lg:flex-row lg:items-center">
+                <div className="mb-4 lg:mb-0 lg:mr-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -107,16 +107,16 @@ const Contact = () => {
                     </defs>
                   </svg>
                 </div>
-                <div className="w-full">
-                  <h4 className="mb-1 text-xl font-bold">Phone Number</h4>
-                  <p className="text-base ">+91-8819873122</p>
+                <div>
+                  <h4 className="mb-1 text-lg font-bold">Phone Number</h4>
+                  <p className="text-base">+91-8819873122</p>
                 </div>
               </div>
-              <div className="mb-8 flex w-full max-w-[370px] items-center">
-                <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-8 flex flex-col items-center lg:flex-row lg:items-center">
+                <div className="mb-4 lg:mb-0 lg:mr-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -126,76 +126,78 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <div className="w-full">
-                  <h4 className="mb-1 text-xl font-bold">
+                <div>
+                  <h4 className="mb-1 text-lg font-bold">
                     <a href="mailto:icaglobal.in@gmail.com">Click to Email</a>
                   </h4>
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-full -my-32 px-4 lg:w-1/2 xl:w-5/12">
-            <div className="relative p-8 sm:p-12">
-              <form onSubmit={handleSubmit}>
-                <div className="mb-6">
+          <div className="w-full px-4 lg:w-1/2">
+            <div className="relative">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
                   <input
                     type="text"
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
+                    className="w-full px-4 py-3 text-base border border-[#075593] rounded outline-none focus:border-primary focus:ring-2 focus:ring-primary"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <input
                     type="email"
                     name="email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
+                    className="w-full px-4 py-3 text-base border border-[#075593] rounded outline-none focus:border-primary focus:ring-2 focus:ring-primary"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <input
                     type="text"
                     name="mobile"
                     placeholder="Your Phone"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"
+                    className="w-full px-4 py-3 text-base border border-[#075593] rounded outline-none focus:border-primary focus:ring-2 focus:ring-primary"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <textarea
                     rows="6"
                     name="message"
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="border-stroke w-full rounded border border-[#075593] py-3 px-[14px] text-base outline-none focus:border-primary"></textarea>
+                    className="w-full px-4 py-3 text-base border border-[#075593] rounded outline-none focus:border-primary focus:ring-2 focus:ring-primary"></textarea>
                 </div>
                 <div>
                   <button
                     type="submit"
-                    className="w-full p-3 text-white bg-green-800 transition border rounded hover:bg-opacity-90"
+                    className="w-full p-3 text-white bg-[#075593] transition border rounded-lg hover:bg-[#064a7e] focus:outline-none focus:ring-2 focus:ring-[#075593] shadow-md"
                     disabled={isSubmitting}>
                     {isSubmitting ? (
                       <PropagateLoader
                         color="white"
                         cssOverride={{}}
                         loading
-                        size={5}
-                        speedMultiplier={1}
+                        size={8}
+                        speedMultiplier={0.75}
                       />
                     ) : (
-                      "Send Message"
+                      <span className="font-semibold">Send Message</span>
                     )}
                   </button>
                 </div>
               </form>
-              {status && <p className="mt-4 text-center">{status}</p>}
+              {status && (
+                <p className="mt-4 text-center text-green-600">{status}</p>
+              )}
             </div>
           </div>
         </div>
@@ -204,4 +206,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Enquiry;

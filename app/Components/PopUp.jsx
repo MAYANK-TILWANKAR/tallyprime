@@ -22,25 +22,25 @@ const Popup = () => {
     // Reset the hasShown state after a delay to allow the popup to show again
     setTimeout(() => {
       setHasShown(false);
-    }, 20000); // 1 minute delay before allowing the popup to show again
+    }, 20000); // 20 seconds delay before allowing the popup to show again
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-      <div className="bg-gradient-to-br from-[#075593] to-[#328AB0] p-8 rounded-xl shadow-2xl text-center max-w-md w-full mx-4 animate-fadeIn relative">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 p-4 sm:p-0">
+      <div className="bg-gradient-to-br from-[#075593] to-[#328AB0] p-6 sm:p-8 rounded-xl shadow-2xl text-center w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto animate-fadeIn relative">
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 text-[#ed1515] transition-colors duration-300"
+          className="absolute top-2 right-2 sm:top-3 sm:right-3 text-[#ed1515] transition-colors duration-300"
           aria-label="Close">
-          <IoMdClose size={28} />
+          <IoMdClose size={24} />
         </button>
-        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-white leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-white leading-tight">
           Join 3 Days Free Demo Classes
         </h1>
-        <a href="/bookDemo">
-          <button className="bg-[#EDA915] text-[#075593] font-bold py-2 px-5 rounded-full text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
+        <a href="/bookDemo" className="inline-block">
+          <button className="bg-[#EDA915] text-[#075593] font-bold py-2 px-4 sm:px-5 rounded-full text-base sm:text-lg hover:bg-white hover:text-[#075593] transition-colors duration-300 transform hover:scale-105">
             Join now
           </button>
         </a>

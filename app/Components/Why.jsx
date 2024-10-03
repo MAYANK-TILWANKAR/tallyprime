@@ -5,7 +5,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -125,7 +125,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@ const Why = () => {
     {
       icon: (
         <svg
-          className="w-12 h-12 text-[#075593]"
+          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#075593]"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -178,19 +178,19 @@ const Why = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 md:py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-4xl font-bold mb-12 text-[#075593]">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-[#075593]">
           Why Should You Learn Tally Prime with GST?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
-              <div className="flex items-center mb-4">
-                <div className="mr-4">{reason.icon}</div>
-                <p className="text-gray-800 font-medium text-lg">
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <div className="flex flex-col sm:flex-row items-center mb-4">
+                <div className="mb-4 sm:mb-0 sm:mr-4">{reason.icon}</div>
+                <p className="text-gray-800 font-medium text-base sm:text-lg text-center sm:text-left">
                   {reason.text}
                 </p>
               </div>

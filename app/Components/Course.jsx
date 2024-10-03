@@ -132,11 +132,15 @@ const CourseCurriculum = () => {
   ];
 
   return (
-    <div className="text-[#075593] px-10 py-28 rounded-lg">
-      <div className="flex justify-between bg-[#075593]/20 text-[#075593] p-4 rounded-lg">
-        <span>{modules.length} Modules</span>
-        <h1 className="text-4xl font-bold">Course curriculum</h1>
-        <span>
+    <div className="text-[#075593] px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 md:py-24 lg:py-28 rounded-lg">
+      <div className="flex flex-col sm:flex-row justify-between items-center bg-[#075593]/20 text-[#075593] p-4 rounded-lg">
+        <span className="text-sm sm:text-base mb-2 sm:mb-0">
+          {modules.length} Modules
+        </span>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center sm:text-left mb-2 sm:mb-0">
+          Course curriculum
+        </h1>
+        <span className="text-sm sm:text-base">
           {modules.reduce((acc, module) => acc + module.content.length, 0)}{" "}
           Lessons
         </span>
@@ -147,11 +151,13 @@ const CourseCurriculum = () => {
         {modules.map((module, index) => (
           <div key={index} className="border-b border-[#075593]/30">
             <motion.div
-              className="p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
+              className="p-3 sm:p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
               onClick={() => toggleModule(index)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}>
-              <span className="font-semibold">{module.title}</span>
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}>
+              <span className="font-semibold text-sm sm:text-base">
+                {module.title}
+              </span>
               <motion.span
                 animate={{ rotate: openModule === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}>
@@ -165,12 +171,12 @@ const CourseCurriculum = () => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="p-4 bg-[#075593]/5 overflow-hidden">
-                  <ul className="list-disc pl-5">
+                  className="p-3 sm:p-4 bg-[#075593]/5 overflow-hidden">
+                  <ul className="list-disc pl-4 sm:pl-5">
                     {module.content.map((item, itemIndex) => (
                       <motion.li
                         key={itemIndex}
-                        className="text-[#075593]"
+                        className="text-[#075593] text-sm sm:text-base"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: itemIndex * 0.05 }}>

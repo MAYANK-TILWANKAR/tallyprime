@@ -14,7 +14,7 @@ const Hero = () => {
               Get 100% Job Placement Support!
             </span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-[#075593] mb-10 sm:mb-12">
+          <p className="hidden sm:block text-lg sm:text-xl md:text-2xl text-[#075593] mb-10 sm:mb-12">
             Looking to secure a high-demand job in accounting and taxation? Our
             3-Month Practical Accounting & Taxation Course with Tally Prime
             equips you with the real-world skills top employers are searching

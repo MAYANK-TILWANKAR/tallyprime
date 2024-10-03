@@ -7,8 +7,6 @@ const BookDemo = () => {
     name: "",
     email: "",
     mobile: "",
-    college: "",
-    date: "",
     course: "Tally Prime with GST",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,8 +39,6 @@ const BookDemo = () => {
           name: "",
           email: "",
           mobile: "",
-          college: "",
-          date: "",
           course: "Tally Prime with GST", // Ensure this is reset as well
         });
         // Show popup
@@ -108,36 +104,6 @@ const BookDemo = () => {
             id="mobile"
             name="mobile"
             value={formData.mobile}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="college"
-            className="block text-[#075593] font-bold mb-2">
-            College or School Name *
-          </label>
-          <input
-            type="text"
-            id="college"
-            name="college"
-            value={formData.college}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="date" className="block text-[#075593] font-bold mb-2">
-            Preferred Date *
-          </label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            value={formData.date}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border border-[#328AB0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#075593]"

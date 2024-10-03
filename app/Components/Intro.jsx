@@ -99,7 +99,7 @@ const Intro = () => {
               <span className="hidden sm:inline">
                 Book Free Demo Class Now!
               </span>
-              <span className="sm:hidden">Book Demo</span>
+              <span className="sm:hidden">Book Free Demo Class Now! </span>
             </span>
           </a>
         </div>

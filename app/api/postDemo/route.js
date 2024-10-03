@@ -12,7 +12,9 @@ export async function POST(req) {
 
     // Set up Nodemailer to send email
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USERNAME,
         pass: process.env.EMAIL_PASSWORD,
@@ -20,7 +22,7 @@ export async function POST(req) {
     });
 
     const mailOptions = {
-      from: data.email, // Sender's email from form data
+      from: process.env.EMAIL_USERNAME, // Use your verified sender email
       to: "mayanktilwankar2355@gmail.com", // Recipient's email
       subject: `New Demo Class Booking From ${data.name}!`, // Email subject
       text: `You have received a new demo enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nMobile:${data.mobile}\nCollege or School: ${data.college}\nDate: ${data.date}\nCourse: ${data.course}`,
@@ -35,9 +37,12 @@ export async function POST(req) {
     });
   } catch (error) {
     console.error("Error:", error);
-    return new Response(JSON.stringify({ error: "Server error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Server error", details: error.message }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }

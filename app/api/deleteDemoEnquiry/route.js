@@ -5,7 +5,8 @@ export async function DELETE(request) {
   try {
     await connectToDatabase();
 
-    const { id } = await request.json();
+    const body = await request.json();
+    const { id } = body;
 
     if (!id) {
       return new Response(
@@ -42,7 +43,11 @@ export async function DELETE(request) {
   } catch (e) {
     console.error(e);
     return new Response(
-      JSON.stringify({ success: false, error: "Server error" }),
+      JSON.stringify({
+        success: false,
+        error: "Server error",
+        details: e.message,
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json" },

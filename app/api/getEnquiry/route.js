@@ -6,17 +6,24 @@ export async function GET() {
     await connectToDatabase();
 
     // Fetch the data from the EnquiryData collection
-    const data = await EnquiryData.find({});
+    const data = await EnquiryData.find({}).lean();
 
     return new Response(JSON.stringify({ success: true, data }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (e) {
-    console.error(e);
-    return new Response(JSON.stringify({ success: false, error: "Database connection error" }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error("Error in GET /api/getEnquiry:", e);
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: "Server error",
+        details: e.message,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }

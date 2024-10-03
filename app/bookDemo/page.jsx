@@ -43,6 +43,7 @@ const BookDemo = () => {
           mobile: "",
           college: "",
           date: "",
+          course: "Tally Prime with GST", // Ensure this is reset as well
         });
         // Show popup
         setShowPopup(true);
@@ -50,9 +51,11 @@ const BookDemo = () => {
         setTimeout(() => setShowPopup(false), 3000);
       } else {
         console.error("Form submission failed");
+        // You might want to show an error message to the user here
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      // You might want to show an error message to the user here
     } finally {
       setIsSubmitting(false);
     }

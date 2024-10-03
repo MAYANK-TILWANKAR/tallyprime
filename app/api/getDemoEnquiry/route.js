@@ -8,6 +8,11 @@ export async function GET(request) {
   try {
     await connectToDatabase();
 
+    // Check if DemoData is defined
+    if (!DemoData) {
+      throw new Error("DemoData model is not defined");
+    }
+
     const demoData = await DemoData.find().sort({ createdAt: -1 });
 
     return NextResponse.json(demoData);

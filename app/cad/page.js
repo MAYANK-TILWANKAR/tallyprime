@@ -8,15 +8,17 @@ const ContactAdminDashboard = () => {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
+    console.log("Fetching data...");
     setLoading(true);
     setError(null);
     try {
+      const timestamp = new Date().getTime();
       const [enquiryRes, demoRes] = await Promise.all([
-        fetch("/api/getEnquiry", {
+        fetch(`/api/getEnquiry?t=${timestamp}`, {
           cache: "no-store",
           headers: { "Cache-Control": "no-cache" },
         }),
-        fetch("/api/getDemoEnquiry", {
+        fetch(`/api/getDemoEnquiry?t=${timestamp}`, {
           cache: "no-store",
           headers: { "Cache-Control": "no-cache" },
         }),
@@ -31,6 +33,9 @@ const ContactAdminDashboard = () => {
         demoRes.json(),
       ]);
 
+      console.log("Enquiry data:", enquiryData);
+      console.log("Demo data:", demoData);
+
       setFormData(enquiryData.data);
       setDemoData(demoData.data);
     } catch (error) {
@@ -38,6 +43,7 @@ const ContactAdminDashboard = () => {
       setError(error.message || "An error occurred while fetching data");
     } finally {
       setLoading(false);
+      console.log("Fetch complete");
     }
   }, []);
 
@@ -46,6 +52,7 @@ const ContactAdminDashboard = () => {
   }, [fetchData]);
 
   const handleDelete = async (id, isDemo = false) => {
+    console.log(`Deleting ${isDemo ? "demo" : "enquiry"} entry with id:`, id);
     try {
       const response = await fetch(
         isDemo ? "/api/deleteDemoEnquiry" : "/api/deleteEnquiry",
@@ -63,6 +70,7 @@ const ContactAdminDashboard = () => {
         throw new Error(`Failed to delete ${isDemo ? "demo " : ""}entry`);
       }
 
+      console.log("Delete successful, fetching fresh data...");
       await fetchData();
     } catch (error) {
       console.error(`Error deleting ${isDemo ? "demo " : ""}entry:`, error);
@@ -180,9 +188,17 @@ const ContactAdminDashboard = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">
-        Contact Form Submissions
-      </h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl font-bold text-gray-800">
+          Contact Form Submissions
+        </h2>
+        <button
+          onClick={fetchData}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Refresh Data
+        </button>
+      </div>
       {renderTable(formData)}
 
       <h2 className="text-3xl font-bold my-6 text-gray-800">

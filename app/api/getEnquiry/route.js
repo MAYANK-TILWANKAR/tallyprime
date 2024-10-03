@@ -2,8 +2,10 @@ import connectToDatabase from "@/lib/mongoose";
 import EnquiryData from "@/models/EnquiryData";
 
 export async function GET() {
+  console.log("GET /api/getEnquiry called");
   try {
     await connectToDatabase();
+    console.log("Database connected");
 
     // Fetch the data from the EnquiryData collection
     const data = await EnquiryData.find({}).lean();

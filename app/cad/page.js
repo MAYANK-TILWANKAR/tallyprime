@@ -6,6 +6,7 @@ const ContactAdminDashboard = () => {
   const [demoData, setDemoData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +36,7 @@ const ContactAdminDashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, [refreshKey]); // Add refreshKey to the dependency array
 
   const handleDelete = async (id, isDemo = false) => {
     try {
@@ -65,6 +66,10 @@ const ContactAdminDashboard = () => {
     }
   };
 
+  const handleRefresh = () => {
+    setRefreshKey(prevKey => prevKey + 1);
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -86,6 +91,9 @@ const ContactAdminDashboard = () => {
 
   return (
     <>
+      <button onClick={handleRefresh} className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Refresh Data
+      </button>
       <div className="container mx-auto p-8">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
           Contact Form Submissions

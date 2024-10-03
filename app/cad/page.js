@@ -1,55 +1,21 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React from "react";
+import useSWR from 'swr';
+
+const fetcher = async (url) => {
+  const res = await fetch(url, {
+    headers: { 'Cache-Control': 'no-cache' }
+  });
+  if (!res.ok) throw new Error('An error occurred while fetching the data.');
+  return res.json();
+};
 
 const ContactAdminDashboard = () => {
-  const [formData, setFormData] = useState([]);
-  const [demoData, setDemoData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data: enquiryData, error: enquiryError, mutate: mutateEnquiry } = useSWR('/api/getEnquiry', fetcher);
+  const { data: demoData, error: demoError, mutate: mutateDemo } = useSWR('/api/getDemoEnquiry', fetcher);
 
-  const fetchData = useCallback(async () => {
-    console.log("Fetching data...");
-    setLoading(true);
-    setError(null);
-    try {
-      const timestamp = new Date().getTime();
-      const [enquiryRes, demoRes] = await Promise.all([
-        fetch(`/api/getEnquiry?t=${timestamp}`, {
-          cache: "no-store",
-          headers: { "Cache-Control": "no-cache" },
-        }),
-        fetch(`/api/getDemoEnquiry?t=${timestamp}`, {
-          cache: "no-store",
-          headers: { "Cache-Control": "no-cache" },
-        }),
-      ]);
-
-      if (!enquiryRes.ok || !demoRes.ok) {
-        throw new Error(`Error fetching data`);
-      }
-
-      const [enquiryData, demoData] = await Promise.all([
-        enquiryRes.json(),
-        demoRes.json(),
-      ]);
-
-      console.log("Enquiry data:", enquiryData);
-      console.log("Demo data:", demoData);
-
-      setFormData(enquiryData.data);
-      setDemoData(demoData.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setError(error.message || "An error occurred while fetching data");
-    } finally {
-      setLoading(false);
-      console.log("Fetch complete");
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  const isLoading = !enquiryData && !enquiryError || !demoData && !demoError;
+  const error = enquiryError || demoError;
 
   const handleDelete = async (id, isDemo = false) => {
     console.log(`Deleting ${isDemo ? "demo" : "enquiry"} entry with id:`, id);
@@ -70,32 +36,21 @@ const ContactAdminDashboard = () => {
         throw new Error(`Failed to delete ${isDemo ? "demo " : ""}entry`);
       }
 
-      console.log("Delete successful, fetching fresh data...");
-      await fetchData();
+      console.log("Delete successful, refreshing data...");
+      if (isDemo) {
+        mutateDemo();
+      } else {
+        mutateEnquiry();
+      }
     } catch (error) {
       console.error(`Error deleting ${isDemo ? "demo " : ""}entry:`, error);
-      setError(error.message);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div
-        className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-        role="alert">
-        <strong className="font-bold">Error!</strong>
-        <span className="block sm:inline"> {error}</span>
-      </div>
-    );
-  }
+  const refreshData = () => {
+    mutateEnquiry();
+    mutateDemo();
+  };
 
   const renderTable = (data, isDemo = false) => (
     <div className="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative">
@@ -193,18 +148,18 @@ const ContactAdminDashboard = () => {
           Contact Form Submissions
         </h2>
         <button
-          onClick={fetchData}
+          onClick={refreshData}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Refresh Data
         </button>
       </div>
-      {renderTable(formData)}
+      {renderTable(enquiryData?.data || [])}
 
       <h2 className="text-3xl font-bold my-6 text-gray-800">
         Demo Form Submissions
       </h2>
-      {renderTable(demoData, true)}
+      {renderTable(demoData?.data || [], true)}
     </div>
   );
 };

@@ -3,16 +3,28 @@ import React from "react";
 import useSWR from 'swr';
 
 const fetcher = async (url) => {
+  console.log(`Fetching data from ${url}`);
   const res = await fetch(url, {
     headers: { 'Cache-Control': 'no-cache' }
   });
-  if (!res.ok) throw new Error('An error occurred while fetching the data.');
-  return res.json();
+  if (!res.ok) {
+    console.error(`Error fetching from ${url}:`, res.statusText);
+    throw new Error('An error occurred while fetching the data.');
+  }
+  const data = await res.json();
+  console.log(`Data received from ${url}:`, data);
+  return data;
 };
 
 const ContactAdminDashboard = () => {
-  const { data: enquiryData, error: enquiryError, mutate: mutateEnquiry } = useSWR('/api/getEnquiry', fetcher);
-  const { data: demoData, error: demoError, mutate: mutateDemo } = useSWR('/api/getDemoEnquiry', fetcher);
+  const { data: enquiryData, error: enquiryError, mutate: mutateEnquiry } = useSWR('/api/getEnquiry', fetcher, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
+  });
+  const { data: demoData, error: demoError, mutate: mutateDemo } = useSWR('/api/getDemoEnquiry', fetcher, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
+  });
 
   const isLoading = !enquiryData && !enquiryError || !demoData && !demoError;
   const error = enquiryError || demoError;
@@ -48,6 +60,7 @@ const ContactAdminDashboard = () => {
   };
 
   const refreshData = () => {
+    console.log("Manually refreshing data...");
     mutateEnquiry();
     mutateDemo();
   };
@@ -140,6 +153,9 @@ const ContactAdminDashboard = () => {
       </table>
     </div>
   );
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="container mx-auto p-8">

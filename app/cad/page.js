@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 const ContactAdminDashboard = () => {
   const [formData, setFormData] = useState([]);
@@ -7,36 +7,43 @@ const ContactAdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true); // Ensure loading is set to true before fetching
-      try {
-        const [enquiryRes, demoRes] = await Promise.all([
-          fetch("/api/getEnquiry", { cache: 'no-store' }),
-          fetch("/api/getDemoEnquiry", { cache: 'no-store' }),
-        ]);
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [enquiryRes, demoRes] = await Promise.all([
+        fetch("/api/getEnquiry", { 
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' }
+        }),
+        fetch("/api/getDemoEnquiry", { 
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' }
+        }),
+      ]);
 
-        if (!enquiryRes.ok || !demoRes.ok) {
-          throw new Error(`Error fetching data`);
-        }
-
-        const [enquiryData, demoData] = await Promise.all([
-          enquiryRes.json(),
-          demoRes.json(),
-        ]);
-
-        setFormData(enquiryData.data);
-        setDemoData(demoData.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error.message || "An error occurred while fetching data");
-      } finally {
-        setLoading(false);
+      if (!enquiryRes.ok || !demoRes.ok) {
+        throw new Error(`Error fetching data`);
       }
-    };
 
-    fetchData();
+      const [enquiryData, demoData] = await Promise.all([
+        enquiryRes.json(),
+        demoRes.json(),
+      ]);
+
+      setFormData(enquiryData.data);
+      setDemoData(demoData.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message || "An error occurred while fetching data");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleDelete = async (id, isDemo = false) => {
     try {
@@ -46,6 +53,7 @@ const ContactAdminDashboard = () => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            'Cache-Control': 'no-cache'
           },
           body: JSON.stringify({ id }),
         }
@@ -55,11 +63,8 @@ const ContactAdminDashboard = () => {
         throw new Error(`Failed to delete ${isDemo ? "demo " : ""}entry`);
       }
 
-      if (isDemo) {
-        setDemoData(demoData.filter((entry) => entry._id !== id));
-      } else {
-        setFormData(formData.filter((entry) => entry._id !== id));
-      }
+      // After successful deletion, fetch fresh data
+      await fetchData();
     } catch (error) {
       console.error(`Error deleting ${isDemo ? "demo " : ""}entry:`, error);
       setError(error.message);

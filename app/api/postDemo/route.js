@@ -25,7 +25,7 @@ export async function POST(req) {
       from: process.env.EMAIL_USERNAME, // Use your verified sender email
       to: "icaglobal.in@gmail.com", // Recipient's email
       subject: `New Demo Class Booking From ${data.name}!`, // Email subject
-      text: `You have received a new demo enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nMobile:${data.mobile}\nCollege or School: ${data.college}\nDate: ${data.date}\nCourse: ${data.course}`,
+      text: `You have received a new demo enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nMobile:${data.mobile}\nCourse: ${data.course}`,
     };
 
     await transporter.sendMail(mailOptions); // Send the email

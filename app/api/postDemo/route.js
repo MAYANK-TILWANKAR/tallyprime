@@ -23,7 +23,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: process.env.EMAIL_USERNAME, // Use your verified sender email
-      to: "mayanktilwankar2355@gmail.com", // Recipient's email
+      to: "icaglobal.in@gmail.com", // Recipient's email
       subject: `New Demo Class Booking From ${data.name}!`, // Email subject
       text: `You have received a new demo enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nMobile:${data.mobile}\nCollege or School: ${data.college}\nDate: ${data.date}\nCourse: ${data.course}`,
     };

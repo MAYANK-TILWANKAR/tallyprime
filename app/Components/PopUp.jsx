@@ -22,7 +22,7 @@ const Popup = () => {
     // Reset the hasShown state after a delay to allow the popup to show again
     setTimeout(() => {
       setHasShown(false);
-    }, 20000); // 20 seconds delay before allowing the popup to show again
+    }, 35000);
   };
 
   if (!isOpen) return null;

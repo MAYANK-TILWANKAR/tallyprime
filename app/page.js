@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./Components/Hero";
@@ -16,7 +17,8 @@ import Bar from "./Components/Bar";
 import Intro from "./Components/Intro";
 import Contact from "./Components/Enquiry";
 import PopUp from "./Components/PopUp";
-
+import Hero1 from "./Components/Hero1";
+import Certificate from "./Components/Certificate";
 const LandingPage = () => {
   useEffect(() => {
     const lenis = new Lenis();
@@ -38,19 +40,21 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden overflow-y-hidden  py-10 ">
+    <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-x-hidden overflow-y-hidden  ">
       <PopUp />
-      <Hero />
+      <Hero1 />
+      {/* <Hero /> */}
       <Second />
       <Course />
-      <Third />
+      {/* <Third /> */}
       <Fourth />
-      <Fifth />
-      <Trainer />
-      <Intro />
+      <Certificate />
+      {/* <Trainer /> */}
+      {/* <Intro /> */}
 
       <Testimonial />
       <Why />
+      <Fifth />
       <div id="enquiry">
         <Contact />
       </div>

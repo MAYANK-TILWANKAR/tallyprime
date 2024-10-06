@@ -96,7 +96,6 @@ const Testimonial = () => {
                       ref={(el) => (videoRefs.current[index] = el)}
                       className="w-full h-auto object-cover"
                       src={testimonial.video}
-                      autoPlay
                       loop
                       playsInline
                       preload="auto"

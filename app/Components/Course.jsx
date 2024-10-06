@@ -132,65 +132,63 @@ const CourseCurriculum = () => {
   ];
 
   return (
-    <div className="text-[#075593] px-4 sm:px-6 md:px-8 lg:px-10 py-16 sm:py-20 md:py-24 lg:py-28 rounded-lg">
-      <div className="flex flex-col sm:flex-row justify-between items-center bg-[#075593]/20 text-[#075593] p-4 rounded-lg">
-        <span className="text-sm sm:text-base mb-2 sm:mb-0">
-          {modules.length} Modules
-        </span>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center sm:text-left mb-2 sm:mb-0">
-          Course curriculum
-        </h1>
-        <span className="text-sm sm:text-base">
-          {modules.reduce((acc, module) => acc + module.content.length, 0)}{" "}
-          Lessons
-        </span>
-      </div>
+    <section className=" py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8 md:p-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 text-[#075593]">
+            Course Curriculum
+          </h1>
 
-      {/* Modules */}
-      <div className="mt-4">
-        {modules.map((module, index) => (
-          <div key={index} className="border-b border-[#075593]/30">
-            <motion.div
-              className="p-3 sm:p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
-              onClick={() => toggleModule(index)}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}>
-              <span className="font-semibold text-sm sm:text-base">
-                {module.title}
-              </span>
-              <motion.span
-                animate={{ rotate: openModule === index ? 180 : 0 }}
-                transition={{ duration: 0.3 }}>
-                ▼
-              </motion.span>
-            </motion.div>
-            <AnimatePresence>
-              {openModule === index && (
+          <div className="space-y-4">
+            {modules.map((module, index) => (
+              <div
+                key={index}
+                className="bg-[#075593]/5 rounded-lg overflow-hidden">
                 <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="p-3 sm:p-4 bg-[#075593]/5 overflow-hidden">
-                  <ul className="list-disc pl-4 sm:pl-5">
-                    {module.content.map((item, itemIndex) => (
-                      <motion.li
-                        key={itemIndex}
-                        className="text-[#075593] text-sm sm:text-base"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: itemIndex * 0.05 }}>
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
+                  className="p-3 sm:p-4 flex justify-between items-center cursor-pointer bg-[#075593]/10 hover:bg-[#075593]/20 transition-colors duration-300"
+                  onClick={() => toggleModule(index)}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}>
+                  <span className="font-semibold text-sm sm:text-base text-[#075593]">
+                    {module.title}
+                  </span>
+                  <motion.span
+                    animate={{ rotate: openModule === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-[#328AB0]">
+                    ▼
+                  </motion.span>
                 </motion.div>
-              )}
-            </AnimatePresence>
+                <AnimatePresence>
+                  {openModule === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="p-3 sm:p-4 bg-white">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {module.content.map((item, itemIndex) => (
+                          <motion.li
+                            key={itemIndex}
+                            className="flex items-center text-[#328AB0] text-sm sm:text-base"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: itemIndex * 0.05 }}>
+                            <span className="mr-2 text-[#075593]">•</span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

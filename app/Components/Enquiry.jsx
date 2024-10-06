@@ -49,7 +49,7 @@ const Enquiry = () => {
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 ">
+    <section className="py-12 sm:py-16 md:py-20 mb-28 sm:mb-0 ">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4 mb-8 lg:w-1/2 lg:mb-0">

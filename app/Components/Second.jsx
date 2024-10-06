@@ -3,7 +3,7 @@ import React from "react";
 const Second = () => {
   return (
     <>
-      <section className="py-8 sm:py-12 md:py-16 lg:py-24 h-screen flex items-center">
+      <section className="py-20  sm:py-12 md:py-16 lg:py-24 flex items-center">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#075593] mb-3 sm:mb-4 md:mb-5">
             BECOME A CERTIFIED ACCOUNTANT..!

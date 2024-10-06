@@ -9,7 +9,7 @@ const Certificate = () => {
             Certified Excellence
           </h2>
           <p className="text-lg sm:text-xl mb-8 text-[#328AB0]">
-            Upon completion of our comprehensive course, you'll receive a
+            Upon completion of our comprehensive course, you&apos;ll receive a
             prestigious certificate recognizing your expertise in Excel and
             financial analysis.
           </p>

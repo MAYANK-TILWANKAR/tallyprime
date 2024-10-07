@@ -3,7 +3,7 @@ import React from "react";
 const Fifth = () => {
   return (
     <>
-      <section className=" text-center py-8 sm:py-12 md:py-20 px-4 md:px-0 bg-white">
+      <section className=" text-center py-8 sm:py-12 md:py-20 px-4 md:px-0 mx-4 sm:mx-0 rounded-xl bg-white">
         <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-[#075593]">
           WE HOPE NOW YOU ARE READY TO GO ON THIS
         </h1>

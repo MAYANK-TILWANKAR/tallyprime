@@ -12,6 +12,7 @@ const Testimonial = () => {
       if (video) {
         video.muted = false;
         video.volume = 0.5; // Set volume to 50%
+        video.currentTime = 1; // Start the video from 2 seconds
       }
     });
   }, []);
@@ -28,7 +29,7 @@ const Testimonial = () => {
           spaceBetween={20}
           loop={true}
           autoplay={{
-            delay: 3000,
+            delay: 1000,
             disableOnInteraction: false,
           }}
           breakpoints={{

@@ -30,7 +30,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white text-[#075593] font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition duration-300">
-              Enroll Now
+              <a href="/bookDemo">Enroll Now</a>
             </motion.button>
           </div>
         </motion.div>

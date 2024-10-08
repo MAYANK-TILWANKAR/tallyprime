@@ -5,13 +5,14 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="relative min-h-screen w-full flex items-center overflow-hidden">
-      <div className="container mx-auto px-4 z-10">
+      {/* Desktop View */}
+      <div className="hidden md:block container mx-auto px-4 z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="w-full lg:w-1/2 mx-auto lg:mx-0 lg:ml-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight text-center lg:text-left">
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-left">
             Learn Tally Prime with GST Course in just{" "}
             <span className="text-yellow-300">3 Months</span>
           </h1>
@@ -19,30 +20,55 @@ const Hero = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mt-3 sm:mt-4 mb-4 sm:mb-6 text-center lg:text-left">
-            <span className="px-2 sm:px-4 py-1 sm:py-2 rounded-lg inline-block transform -skew-x-6 text-[#ffffff] shadow-lg">
+            className="text-3xl lg:text-4xl font-semibold text-white mt-4 mb-6 text-left">
+            <span className="px-4 py-2 rounded-lg inline-block transform -skew-x-6 text-[#ffffff] shadow-lg">
               Get 100% Job Placement Support!
             </span>
           </motion.h2>
-          <div className="text-center lg:text-left">
+          <div className="text-left">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#075593] font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg shadow-lg hover:bg-yellow-300 transition duration-300">
+              className="bg-white text-[#075593] font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition duration-300">
               Enroll Now
             </motion.button>
           </div>
         </motion.div>
       </div>
-      <Image
-        src="/images/mobile.jpeg"
-        alt="hero"
-        layout="fill"
-        objectFit="contain"
-        quality={100}
-        priority
-        className="absolute inset-0 block md:hidden "
-      />
+
+      {/* Mobile View */}
+      <div className="md:hidden container mx-auto px-4 mb-10 z-10 flex flex-col items-center">
+        <Image
+          src="/images/mobile.jpeg"
+          alt="hero"
+          width={400}
+          height={400}
+          objectFit="cover"
+          quality={100}
+          priority
+          className="mb-8 rounded-lg shadow-lg"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#075593] mb-4 leading-tight">
+            Learn Tally Prime with GST Course in just{" "}
+            <span className="text-yellow-400">3 Months</span>
+          </h1>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-xl sm:text-2xl font-semibold text-[#075593] mt-3 mb-6">
+            <span className="px-3 py-2 rounded-lg inline-block transform -skew-x-6 bg-[#075593] text-white shadow-lg">
+              Get 100% Job Placement Support!
+            </span>
+          </motion.h2>
+        </motion.div>
+      </div>
+
       <Image
         src="/images/hero.png"
         alt="hero"
@@ -52,7 +78,7 @@ const Hero = () => {
         priority
         className="absolute inset-0 hidden md:block"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#075593]/60 to-transparent"></div>
+      <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#075593]/60 to-transparent"></div>
     </section>
   );
 };

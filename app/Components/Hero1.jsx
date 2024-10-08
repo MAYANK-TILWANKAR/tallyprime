@@ -35,13 +35,22 @@ const Hero = () => {
         </motion.div>
       </div>
       <Image
+        src="/images/mobile.jpeg"
+        alt="hero"
+        layout="fill"
+        objectFit="contain"
+        quality={100}
+        priority
+        className="absolute inset-0 block md:hidden "
+      />
+      <Image
         src="/images/hero.png"
         alt="hero"
         layout="fill"
         objectFit="cover"
         quality={100}
         priority
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#075593]/60 to-transparent"></div>
     </section>

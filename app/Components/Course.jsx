@@ -23,7 +23,7 @@ const CourseCurriculum = () => {
       content: [
         "Introduction to Tally Prime",
         "Creating a Company",
-        "Data Path for Tally ERP9 Companies",
+        "Data Path for Tally Prime Companies",
         "Altering and Deleting Company",
       ],
     },

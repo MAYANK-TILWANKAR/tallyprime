@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
-import Hero1 from "./Components/Hero1";
+import Hero from "./Components/Hero";
 import Second from "./Components/Second";
 import Course from "./Components/Course";
 import Fourth from "./Components/Fourth";
@@ -10,7 +10,7 @@ import Certificate from "./Components/Certificate";
 import Testimonial from "./Components/Testimonial";
 import Why from "./Components/Why";
 import Fifth from "./Components/Fifth";
-import Contact from "./Components/Enquiry";
+import Enquiry from "./Components/Enquiry";
 import Bar from "./Components/Bar";
 import PopUp from "./Components/PopUp";
 
@@ -33,7 +33,7 @@ const LandingPage = () => {
   return (
     <div className="bg-gradient-to-b from-[#075593]/30 to-[#328AB0]/30 overflow-hidden">
       <PopUp />
-      <Hero1 />
+      <Hero />
       <Second />
       <Course />
       <Fourth />
@@ -41,7 +41,7 @@ const LandingPage = () => {
       <Testimonial />
       <Why />
       <Fifth />
-      <Contact />
+      <Enquiry />
       <Bar />
     </div>
   );

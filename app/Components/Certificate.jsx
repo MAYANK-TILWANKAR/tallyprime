@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 const Certificate = () => {
   return (
     <section className="py-12 sm:py-16 md:py-20 bg-gray-100">
@@ -14,10 +14,12 @@ const Certificate = () => {
             financial analysis.
           </p>
           <div className="mb-10">
-            <img
-              src="/images/certificate.jpg"
+            <Image
+              src="/images/certificate.webp"
               alt="Excel Mastery Certificate"
-              className="w-full   max-w-2xl sm:max-w-lg mx-auto rounded-lg shadow-lg"
+              width={800}
+              height={600}
+              className="w-full max-w-2xl sm:max-w-lg mx-auto rounded-lg shadow-lg"
             />
           </div>
           <p className="text-base sm:text-lg mb-8 text-gray-700">

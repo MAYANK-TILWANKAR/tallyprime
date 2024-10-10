@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-
+import Image from "next/image";
 const Testimonial = () => {
   const videoRefs = useRef([]);
 
@@ -44,22 +44,32 @@ const Testimonial = () => {
           }}
           className="testimonial-swiper">
           {[
-            { image: "/images/s1.jpg" },
-            { image: "/images/tallyt1.jpg" },
-            { image: "/images/s2.jpg" },
-            { image: "/images/tallyt2.jpg" },
-            { image: "/images/s3.jpg" },
-            { image: "/images/tallyt3.jpg" },
-            { image: "/images/s4.jpg" },
-            { image: "/images/tallyt2.jpg" },
+            { image: "/images/s1.webp" },
+            { image: "/images/tallyt1.webp" },
+            { image: "/images/s2.webp" },
+            { image: "/images/tallyt2.webp" },
+            { image: "/images/s3.webp" },
+            { image: "/images/tallyt3.webp" },
+            { image: "/images/s4.webp" },
+            { image: "/images/tallyt2.webp" },
           ].map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-105 p-0 overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  src={testimonial.image}
-                  alt={`Testimonial ${index + 1}`}
-                />
+                <div className="relative w-full h-full">
+                  <Image
+                    className="w-full h-full object-cover pointer-events-none"
+                    src={testimonial.image}
+                    alt={`Testimonial ${index + 1}`}
+                    width={500}
+                    height={300}
+                    quality={100}
+                    loading="lazy"
+                    unoptimized={true}
+                  />
+                  <div
+                    className="absolute inset-0"
+                    onContextMenu={(e) => e.preventDefault()}></div>
+                </div>
               </div>
             </SwiperSlide>
           ))}
@@ -101,9 +111,16 @@ const Testimonial = () => {
                       playsInline
                       preload="auto"
                       controls
-                      controlsList="nodownload">
+                      controlsList="nodownload"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onMouseDown={(e) => {
+                        if (e.button === 2) e.preventDefault();
+                      }}>
                       Your browser does not support the video tag.
                     </video>
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      onContextMenu={(e) => e.preventDefault()}></div>
                   </div>
                 </div>
               )

@@ -14,27 +14,27 @@ const Fourth = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
             {[
-              { title: "HR & Admin", icon: "/images/admin.svg" },
-              { title: "Business Analyst", icon: "/images/enginner.svg" },
+              { title: "HR & Admin", icon: "/svgs/admin.svg" },
+              { title: "Business Analyst", icon: "/svgs/enginner.svg" },
               {
                 title: "Sales & Marketing Professional",
-                icon: "/images/sales.svg",
+                icon: "/svgs/sales.svg",
               },
               {
                 title: "Statistical Analysis Professional",
-                icon: "/images/stastics.svg",
+                icon: "/svgs/stastics.svg",
               },
-              { title: "Finance Professional", icon: "/images/finance.svg" },
+              { title: "Finance Professional", icon: "/svgs/finance.svg" },
               {
                 title: "Advocate-Lawyers Professional",
-                icon: "/images/advocate.svg",
+                icon: "/svgs/advocate.svg",
               },
               {
                 title: "Investment Banking Analyst",
-                icon: "/images/banking.svg",
+                icon: "/svgs/banking.svg",
               },
-              { title: "Share Marketing", icon: "/images/share.svg" },
-              { title: "Student", icon: "/images/student.svg" },
+              { title: "Share Marketing", icon: "/svgs/share.svg" },
+              { title: "Student", icon: "/svgs/student.svg" },
             ].map((item, index) => (
               <div
                 key={index}

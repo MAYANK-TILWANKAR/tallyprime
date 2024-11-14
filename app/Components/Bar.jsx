@@ -1,6 +1,6 @@
 const FixedBar = () => {
   return (
-    <div className="fixed sm:mb-0  bottom-0 w-full bg-[#075593]/10 p-4 flex items-center justify-center transition-transform duration-300 translate-y-0">
+    <div className="fixed sm:mb-0  sm:bottom-14 bottom-5 w-full  p-4 flex items-center justify-center transition-transform duration-300 translate-y-0">
       <a
         href="/bookDemo"
         className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-black bg-[#EDA915]">

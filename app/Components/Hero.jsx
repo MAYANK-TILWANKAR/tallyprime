@@ -43,10 +43,9 @@ const Hero = () => {
           alt="hero"
           width={400}
           height={400}
-          objectFit="cover"
           quality={100}
           priority
-          className="mb-8 rounded-lg shadow-lg"
+          className="mb-8 rounded-lg shadow-lg object-cover"
         />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -72,11 +71,11 @@ const Hero = () => {
       <Image
         src="/images/hero.webp"
         alt="hero"
-        layout="fill"
-        objectFit="cover"
+        width={1920}
+        height={1080}
         quality={100}
         priority
-        className="absolute inset-0 hidden md:block"
+        className="absolute inset-0 hidden md:block object-cover"
       />
       <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-[#075593]/60 to-transparent"></div>
     </section>

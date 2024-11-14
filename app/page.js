@@ -13,7 +13,7 @@ import Fifth from "./Components/Fifth";
 import Enquiry from "./Components/Enquiry";
 import Bar from "./Components/Bar";
 import PopUp from "./Components/PopUp";
-
+import Footer from "./Components/Footer";
 const LandingPage = () => {
   useEffect(() => {
     const lenis = new Lenis();
@@ -43,6 +43,7 @@ const LandingPage = () => {
       <Fifth />
       <Enquiry />
       <Bar />
+      <Footer />
     </div>
   );
 };

@@ -63,9 +63,9 @@ export default function RootLayout({ children }) {
             }
           `}
           </script>
-
-          <Script>
-            {`
+        </Head>
+        <Script>
+          {`
               
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -78,16 +78,15 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1609493679586075');
 fbq('track', 'PageView');
               `}
-          </Script>
-          <noscript>
-            <img
-              height="1"
-              width="1"
-              style="display:none"
-              src="https://www.facebook.com/tr?id=1609493679586075&ev=PageView&noscript=1"
-            />
-          </noscript>
-        </Head>
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=1609493679586075&ev=PageView&noscript=1"
+          />
+        </noscript>
       </header>
       <body className={inter.className}>{children}</body>
     </html>

@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
           `}
           </script>
         </Head>
-        <Script>
+        <Script id="fb-pixel" strategy="afterInteractive">
           {`
               
 !function(f,b,e,v,n,t,s)
